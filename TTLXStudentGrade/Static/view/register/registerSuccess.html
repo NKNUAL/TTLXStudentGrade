@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>准易教育研究院-注册</title>
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet">
+    <link href="../../js/easyui/themes/material/easyui.css" rel="stylesheet">
+    <link href="../../js/easyui/themes/icon.css" rel="stylesheet">
+    <link href="../../Content/login.css" rel="stylesheet">
+</head>
+
+<body>
+    
+    <script src="../../myJs/head.js"></script>
+    
+    <div class="jm-banner">
+        <div class="container" style="padding: 0;">
+            <div class="banner-text">
+                <a href="http://z.jngk.net.cn" target="_blank">
+                    <img src="../../images/banner-text1216.png" alt="域名注册促销季" width="500">
+                </a>
+            </div>
+            <div class="register-box">
+
+
+                <div class="form-reg form-reg2">
+                    <div class="title">
+                        <h3>成功！</h3>
+                    </div>
+                    <div style="padding-left:50px;width:100%;">
+
+                        <div class="from-group">
+                            <span style="color: white;">状态：</span><span id="message" style="color:red"></span>
+                        </div>
+                        <div style="padding-top:5px;width:100%;" >
+
+                        <div class="from-group">
+                            <span style="color: white;">学校：</span><span id="school" style="color:white"></span>
+                        </div>
+                        <div style="padding-top:5px;width:100%;" ></div>
+
+
+                        <div class="from-group">
+                            <span style="color: white;">专业：</span><span id="specialty" style="color:white"></span>
+                        </div>
+                        <div style="padding-top:5px;width:100%;" ></div>
+
+                        <div class="from-group">
+                            <span style="color: white;">姓名：</span><span id="name" style="color:white"></span>
+                        </div>
+                        <div style="padding-top:5px;width:100%;" ></div>
+
+                        <div class="from-group">
+                            <span style="color: white;">考号：</span><span id="kaohao" style="color:white"></span>
+                        </div>
+                        <div style="padding-top:5px;width:100%;" ></div>
+
+                        <div class="from-group">
+                            <span style="color: white;">身份证号：</span><span id="idcard" style="color:red"></span>
+                        </div>
+                        <div style="padding-top:5px;width:100%;" ></div>
+
+                        <div class="from-group">
+                            <span style="color: white;">密码：</span><span id="pwd" style="color:red"></span>
+                        </div>
+                        <div style="padding-top:5px;width:100%;" ></div>
+
+                        <br />
+                        <span id="s-msg" style="color: white;">请您保存好以上信息，便于考试和成绩查询</span>
+                    </div>
+                    <a href="../login/login.html" style="color: red;">返回登录</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../myJs/footer.js"></script>
+
+
+    <script src="../../js/easyui/jquery.min.js"></script>
+    <script src="../../js/easyui/bootstrap.min.js"></script>
+    <script src="../../js/easyui/jquery.easyui.min.js"></script>
+
+</body>
+
+<script>
+
+    $(function () {
+        loadQueryArgs();
+    });
+
+    function loadQueryArgs() {
+        if (window.location.search.length >= 1) {
+            // 取得url中?后面的字符
+            var query = window.location.search.substring(1);
+
+            // 把参数按&拆分成数组
+            var param_arr = decodeURIComponent(query).split("&");
+            for (var i = 0; i < param_arr.length; i++) {
+                var pair = param_arr[i].split("=");
+                $('#' + pair[0]).html(pair[1]);
+            }
+        }
+
+        return (false);
+    }
+
+</script>
+
+</html>

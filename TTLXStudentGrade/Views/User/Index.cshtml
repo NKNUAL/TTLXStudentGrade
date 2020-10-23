@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "学生报名信息";
+}
+
+
+<div style="padding-left:10px;padding-bottom:20px;width:100%;">
+    <input class="easyui-combobox" id="com-school" style="width:30%;height:33px;" label="学校："
+           data-options="valueField: 'SchoolNo',textField: 'SchoolName',limitToList:true," />
+
+    <input class="easyui-combobox" id="com-specialty" style="width:20%;height:33px;" label="专业："
+           data-options="valueField: 'SpecialtyId',textField: 'SpecialtyName',limitToList:true," />
+    <input class="easyui-textbox" id="stu_name" style="width:20%;height:33px;" label="学生姓名："
+           data-options="" />
+
+    <a class="btn-ftp" href="javascript:;" title="加载学生" onclick="loadStudent()">
+        加载学生信息
+    </a>
+
+    <a class="btn-ftp" href="javascript:;" title="导出学生信息" onclick="OutputStudentExcel()" style="float: right;">
+        <i class="fa fa-minus"></i>
+        导出学生信息
+    </a>
+</div>
+<table id="dg-student2" class="easyui-datagrid" style="width:100%;" data-options="">
+    <thead>
+        <tr>
+            <th data-options="field:'IDCard',width:'20%',halign:'center',align:'center'">身份证号</th>
+            <th data-options="field:'Lexueid',width:'15%',halign:'center',align:'center'">乐学号</th>
+            <th data-options="field:'Kaohao',width:'15%',halign:'center',align:'center'">考号</th>
+            <th data-options="field:'UserName',width:'15%',halign:'center',align:'center'">姓名</th>
+            <th data-options="field:'Pwd',width:'15%',halign:'center',align:'center'">密码</th>
+            <th data-options="field:'SpecialtyName',width:'20%',halign:'center',align:'center'">专业</th>
+        </tr>
+    </thead>
+</table>
+
+
+
+@Styles.Render("~/Content1/css")
+@Styles.Render("~/Content2/css")
+@Scripts.Render("~/bundles/user1")
+@section scripts {
+    <script>
+        $(function () {
+            initPage();
+        });
+
+    </script>
+
+}
+
+
+

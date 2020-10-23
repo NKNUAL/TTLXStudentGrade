@@ -1,0 +1,14 @@
+﻿<div class="leftbar fill-height" v-if="changed">
+    <ul class="accordion" id="accordion" v-show="show">
+        <li v-for="item in items" v-bind:key="item.key">
+            <div class="link" v-on:click="collapseItem($event)">
+                <div is="view-text-normal" v-bind:name="item.name" v-bind:mimg="item.mimg"></div>
+            </div>
+            <ul class="submenu">
+                <li v-for="child in item.childs" v-bind:key="child.key" v-on:click="removeCurrentClass($event)">
+                    <div is="view-pointer-normal" v-bind:url="child.url" v-bind:name="child.name" v-bind:mimg="child.mimg"></div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

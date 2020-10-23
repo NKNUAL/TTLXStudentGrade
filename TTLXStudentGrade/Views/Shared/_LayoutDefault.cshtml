@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+   @Styles.Render("~/Content1/css")
+    @Styles.Render("~/Content2/css")
+    @RenderSection("style", required: false)
+</head>
+<body style="padding:10px;height:100%;margin:0px;overflow-y:auto;">
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/easyui")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

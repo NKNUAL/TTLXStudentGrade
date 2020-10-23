@@ -1,0 +1,40 @@
+﻿
+@{
+    /**/
+
+    ViewBag.Title = "学校导入配置";
+}
+
+
+<div style="margin-bottom:10px;">
+    <div style="padding-left:0px;padding-bottom:5px;padding-top:5px;width:100%;">
+        <input class="easyui-combobox" id="school" style="width:30%;height:33px;" label="学校："
+               data-options="valueField: 'SchoolNo',textField: 'SchoolName',limitToList:true,onSelect: selectSchool" />
+    </div>
+</div>
+
+
+
+<table id="pg" style="width:500px" class="easyui-datagrid" singleSelect="true" data-options="onClickCell: clickCell">
+    <thead>
+        <tr>
+            <th data-options="field:'SpecialtyId',halign:'center',align:'center',hidden:true">专业</th>
+            <th data-options="field:'SpecialtyName',width:'43%',halign:'center',align:'center'">专业</th>
+            <th data-options="field:'LimitCount',width:'20%',halign:'center',align:'center'" editor="numberbox">限制人数</th>
+            <th data-options="field:'Edit',width:'20%',halign:'center',align:'center',formatter:formatter_update">编辑</th>
+            <th data-options="field:'Save',width:'20%',halign:'center',align:'center',formatter:formatter_save">保存</th>
+        </tr>
+    </thead>
+</table>
+
+@Styles.Render("~/Content1/css")
+@Styles.Render("~/Content2/css")
+@Scripts.Render("~/bundles/phoneUser")
+@section scripts {
+    <script>
+        $(function () {
+            loadSchool();
+        });
+
+    </script>
+}

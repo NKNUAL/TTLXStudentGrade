@@ -1,0 +1,245 @@
+﻿body {
+    margin: 0px;
+    background: url('../Images/background.png');
+    background-size: 100%;
+    background-color: cornflowerblue;
+    overflow: hidden;
+}
+
+
+#title {
+    -webkit-font-smoothing: antialiased;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    margin-left: 10px;
+    font-size: 20px;
+    color: white;
+    vertical-align: top;
+}
+
+.header {
+    -webkit-font-smoothing: antialiased;
+    color: #484f62;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    height: 36px;
+    line-height: 36px;
+    padding-top: 20px;
+    margin-left: 200px;
+}
+
+.div_body {
+    -webkit-font-smoothing: antialiased;
+    color: #484f62;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+    width: 800px;
+    height: 420px;
+    margin: 150px auto;
+    background: rgb(255, 255, 255);
+}
+
+
+
+#div_image {
+    -webkit-font-smoothing: antialiased;
+    color: #484f62;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    float: left;
+    box-sizing: border-box;
+    width: 400px;
+    height: 100%;
+    background: rgb(247, 247, 250);
+}
+
+.div_login {
+    -webkit-font-smoothing: antialiased;
+    color: #484f62;
+    text-align: center;
+    margin: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    float: left;
+    box-sizing: border-box;
+    width: 400px;
+    padding: 50px 40px 0px;
+}
+
+#span_title {
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    font-size: 16px;
+    color: rgb(94, 147, 246);
+}
+
+#login_form {
+    -webkit-font-smoothing: antialiased;
+    color: #484f62;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    text-align: center;
+    background-clip: padding-box;
+    background: #fff;
+    margin-top: 40px;
+}
+
+.form_item {
+    -webkit-font-smoothing: antialiased;
+    color: #484f62;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    margin-bottom: 22px;
+}
+
+.login_tips {
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    text-align: left;
+    font-size: 12px;
+    color: rgb(184, 184, 184);
+}
+
+#btn_login {
+    -webkit-font-smoothing: antialiased;
+    color: #484f62;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    margin-bottom: 22px;
+    width: 100%;
+}
+
+#el-form-item-content {
+    -webkit-font-smoothing: antialiased;
+    color: #484f62;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    line-height: 40px;
+    position: relative;
+    font-size: 14px;
+    margin-left: 0px;
+}
+
+#button_login {
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    transition: .1s;
+    font-weight: 500;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #5e93f6;
+    border-color: #5e93f6;
+    width: 100%;
+}
+
+.el-input {
+    -webkit-font-smoothing: antialiased;
+    color: #484f62;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    position: relative;
+    font-size: 14px;
+    display: inline-block;
+    width: 100%;
+}
+
+
+.input_text {
+    -webkit-font-smoothing: antialiased;
+    -webkit-appearance: none;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    color: #606266;
+    display: inline-block;
+    font-size: inherit;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    padding: 0 15px;
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    width: 100%;
+}
+
+.login_message {
+    -webkit-font-smoothing: antialiased;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    color: red;
+    font-size: 12px;
+    text-align: right;
+    margin: -15px auto 20px;
+}
+
+#a_exam {
+    margin-bottom: 50px;
+    padding-right:50px;
+}

@@ -1,0 +1,98 @@
+{
+  "0": {
+    "PassLine": 0.6,
+    "A": 0.9,
+    "B": 0.8,
+    "C": 0.6,
+    "D": 0,
+    "EffectivePeopleNum": { "2019": 540 }
+  },
+  "1": {
+    "PassLine": 0.6,
+    "A": 0.9,
+    "B": 0.8,
+    "C": 0.6,
+    "D": 0,
+    "EffectivePeopleNum": { "2019": 190 }
+  },
+  "2": {
+    "PassLine": 0.6,
+    "A": 0.9,
+    "B": 0.8,
+    "C": 0.6,
+    "D": 0,
+    "EffectivePeopleNum": { "2019": 350 }
+  },
+  "3": {
+    "PassLine": 0.6,
+    "A": 0.9,
+    "B": 0.8,
+    "C": 0.6,
+    "D": 0,
+    "EffectivePeopleNum": { "2019": 270 }
+  },
+  "4": {
+    "PassLine": 0.6,
+    "A": 0.9,
+    "B": 0.8,
+    "C": 0.6,
+    "D": 0,
+    "EffectivePeopleNum": { "2019": 120 }
+  },
+  "5": {
+    "PassLine": 0.6,
+    "A": 0.9,
+    "B": 0.8,
+    "C": 0.6,
+    "D": 0,
+    "EffectivePeopleNum": { "2019": 410 }
+  },
+  "6": {
+    "PassLine": 0.6,
+    "A": 0.9,
+    "B": 0.8,
+    "C": 0.6,
+    "D": 0,
+    "EffectivePeopleNum": { "2019": 70 }
+  },
+  "7": {
+    "PassLine": 0.6,
+    "A": 0.9,
+    "B": 0.8,
+    "C": 0.6,
+    "D": 0,
+    "EffectivePeopleNum": { "2019": 220 }
+  },
+  "8": {
+    "PassLine": 0.6,
+    "A": 0.9,
+    "B": 0.8,
+    "C": 0.6,
+    "D": 0,
+    "EffectivePeopleNum": { "2019": 150 }
+  },
+  "9": {
+    "PassLine": 0.6,
+    "A": 0.9,
+    "B": 0.8,
+    "C": 0.6,
+    "D": 0,
+    "EffectivePeopleNum": { "2019": 130 }
+  },
+  "10": {
+    "PassLine": 0.6,
+    "A": 0.9,
+    "B": 0.8,
+    "C": 0.6,
+    "D": 0,
+    "EffectivePeopleNum": { "2019": 130 }
+  },
+  "11": {
+    "PassLine": 0.6,
+    "A": 0.9,
+    "B": 0.8,
+    "C": 0.6,
+    "D": 0,
+    "EffectivePeopleNum": { "2019": 220 }
+  }
+}

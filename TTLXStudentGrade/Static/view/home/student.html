@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0045)https://v4.bootcss.com/docs/examples/pricing/ -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>学生信息列表</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../Content/bootstrap.min.old.css" rel="stylesheet">
+    <script src="../../js/easyui/jquery.min.js"></script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../myJs/home.js"></script>
+    <!-- Favicons -->
+    <meta name="theme-color" content="#563d7c">
+
+    <style>
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="../../Content/pricing.css" rel="stylesheet">
+</head>
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">准易-湖北技能高考专业课调考成绩查询</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="#">报告列表</a>
+            <a class="p-2 text-dark" href="#">动态监控</a>
+            <a class="p-2 text-dark" href="#">错题集</a>
+        </nav>
+        <!-- <a class="btn btn-outline-primary" href="#">欢迎您！<span id="s-userName">**</span>同学</a> -->
+        <div class="dropdown">
+            <button class="btn btn-primary  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                欢迎您！<span id="s-userName">**</span>同学
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" onclick="loginout()">退出</a>
+                <a class="dropdown-item" onclick="">修改基础信息</a>
+            </div>
+        </div>
+    </div>
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-6">2020，我的考试历程</h1>
+        <p class="lead" id="p-specialty">计算机专业</p>
+        选择年份：<select style="border: 1px groove #52789d;width: 150px;" id="select-year"></select>
+    </div>
+
+    <div class="container">
+        <div class="card-deck mb-3 text-center" id="div-app">
+        </div>
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <p>湖北准易教育研究院</p>
+                    <small class="d-block mb-3 text-muted">© 2020</small>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>技能高考复习资料查看</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="http://www.jngk.net.cn/Education/booklist.html?cid=15" target="_blank">高三文化课</a></li>
+                        <li><a class="text-muted" href="http://www.jngk.net.cn/Education/booklist.html?cid=14" target="_blank">高一高二文化课</a></li>
+                        <li><a class="text-muted" href="http://www.jngk.net.cn/Education/category.html?is_mobile=1" target="_blank">高三专业课</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+<script>
+    $(function () {
+        initStudentPage();
+    });
+
+</script>
+
+</html>

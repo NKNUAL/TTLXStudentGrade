@@ -1,0 +1,53 @@
+﻿body {
+    margin: 0px;
+    background: url('../Images/background.png');
+    background-size: 100%;
+    background-color: cornflowerblue;
+    /*overflow: hidden;*/
+}
+
+
+#title {
+    -webkit-font-smoothing: antialiased;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    margin-left: 10px;
+    font-size: 20px;
+    color: white;
+    vertical-align: top;
+}
+
+.header {
+    -webkit-font-smoothing: antialiased;
+    color: #484f62;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    height: 36px;
+    line-height: 36px;
+    padding-top: 20px;
+    margin-left: 200px;
+}
+
+.div_body {
+    -webkit-font-smoothing: antialiased;
+    color: #484f62;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    text-align: center;
+    width: 800px;
+    height: 500px;
+    margin: 150px auto;
+    background: rgb(255, 255, 255);
+}

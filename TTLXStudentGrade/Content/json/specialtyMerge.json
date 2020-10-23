@@ -1,0 +1,34 @@
+{
+  27: {
+    "planIds": [ 27, 26 ],
+    "specialtyName": "旅游类",
+    "planName": "2020年旅游类5月调考"
+  },
+  26: {
+    "planIds": [ 27, 26 ],
+    "specialtyName": "旅游类",
+    "planName": "2020年旅游类5月调考"
+  },
+
+  34: {
+    "planIds": [ 34, 31 ],
+    "specialtyName": "财经类",
+    "planName": "2020年财经类5月调考"
+  },
+  31: {
+    "planIds": [ 34, 31 ],
+    "specialtyName": "财经类",
+    "planName": "2020年财经类5月调考"
+  },
+
+  36: {
+    "planIds": [ 36, 35 ],
+    "specialtyName": "机械类",
+    "planName": "2020年机械类5月调考"
+  },
+  35: {
+    "planIds": [ 36, 35 ],
+    "specialtyName": "机械类",
+    "planName": "2020年机械类5月调考"
+  }
+}

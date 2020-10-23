@@ -1,0 +1,220 @@
+﻿
+@{
+    ViewBag.Title = "学生信息";
+}
+
+<div style="margin-bottom:10px;">
+    <input id="ss" class="easyui-searchbox" data-options="prompt:'请输入查询信息',searcher:searchInfo,menu:'#mm'" style="width:300px" />
+    <div id="mm">
+        <div data-options="name:'学校名',iconCls:'icon-ok'">服务名</div>
+        <div data-options="name:'发布人',iconCls:'icon-ok'">发布人</div>
+        <div data-options="name:'发布日期',iconCls:'icon-ok'">发布日期</div>
+    </div>
+    <a class="btn-ftp" href="javascript:;" title="添加学生" onclick="AddStudent()" style="float: right;">
+        <i class="fa fa-plus"></i>
+        添加学生
+    </a>
+</div>
+<table id="dg" cellspacing="0" cellpadding="0" style="width: 100%;">
+    <thead>
+        <tr>
+            <th data-options="field:'lexueid',width:'10%',halign:'center',align:'center'">乐学ID</th>
+            <th data-options="field:'KaoHao',width:'10%',halign:'center',align:'center'">登录名</th>
+            <th data-options="field:'UserName',width:'10%',halign:'center',align:'center'">姓名</th>
+            <th data-options="field:'UserPassword',width:'10%',halign:'center',align:'center'">密码</th>
+            <th data-options="field:'IDcard',width:'15%',halign:'center',align:'center'">身份证</th>
+            <th data-options="field:'FK_School',width:'15%',halign:'center',align:'center'">学校</th>
+            <th data-options="field:'FK_SpecialtyName',width:'10%',halign:'center',align:'center'">专业</th>
+            <th data-options="field:'UserClass',width:'15%',halign:'center',align:'center'">班级</th>
+        </tr>
+    </thead>
+    <thead data-options="frozen:true">
+        <tr>
+            <th data-options="field:'EDIT',width:'5%',halign:'center',align:'center',formatter:formatter_update">编辑</th>
+        </tr>
+    </thead>
+</table>
+
+<div id="dlg-add" class="easyui-dialog" title="学生批量添加" data-options="
+     closable:true,
+     modal:true,
+     closed: true,
+     onClose:function(){
+        $('#register-form').form('reset');
+     },
+     buttons:'#register-add'" style="width:600px;height:430px;padding:10px">
+    <div style="border:1px solid #ddd;">
+        <a href="/Student/Dowmload" class="easyui-linkbutton" style="width:80px">模板下载</a>
+        <input id="fileupload" class="easyui-filebox" labelposition="top" data-options="
+                   prompt:'选择学生Excel文件...',
+                   buttonText:'选择',
+                   accept:'application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="Preview()" style="width:60px">预览</a>
+    </div>
+    <table id="dg-add" cellspacing="0" cellpadding="0" style="width: 100%; height: 600px;">
+        <thead>
+            <tr>
+                <th data-options="field:'UserName',width:'20%',halign:'center',align:'center'">姓名</th>
+                <th data-options="field:'UserClass',width:'20%',halign:'center',align:'center'">班级</th>
+                <th data-options="field:'UserClassCode',width:'15%',halign:'center',align:'center'">班级代码</th>
+                <th data-options="field:'FK_SpecialtyName',width:'15%',halign:'center',align:'center'">专业</th>
+                <th data-options="field:'FK_Specialty',width:'20%',halign:'center',align:'center'">专业代码</th>
+                <th data-options="field:'UserPassword',width:'20%',halign:'center',align:'center'">密码</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<div id="register-add" class="btn-groups">
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="Register()" style="width:80px">保存</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="closeDlg()" style="width:80px">关闭</a>
+</div>
+
+
+@section scripts {
+    <script>
+
+        function TemplateDownload() {
+            var url = '/Student/Dowmload';
+            var xhr = new XMLHttpRequest();
+            xhr.responseType = "text";
+            xhr.open('GET', url);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;")
+            xhr.send();
+            xhr.onload = function (e) {
+                window.open(e);
+            };
+        }
+
+        function AddStudent() {
+            $('#dlg-add').dialog({
+                title: '学生添加'
+            });
+            $('#dlg-add').dialog('open');
+        }
+
+        //预览
+        function Preview() {
+            var files = $("input[type='file']")[0].files
+            if (files == null || files.length == 0) {
+                alert('请先选择要上传的Excel文件！');
+                return;
+            }
+            var formData = new FormData();
+            formData.append("stufile", files[0]);
+
+            $.ajax({
+                url: '/Student/Preview',
+                type: 'Post',
+                cache: false,
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+
+                },
+                error: function () {
+
+                }
+            });
+        }
+
+
+        //搜索
+        function searchInfo(value, name) {
+            if (name == '服务名') {
+                initPage('SERVERNAME like \'%' + value + '%\'');
+            }
+            else if (name == '发布人') {
+                initPage('USERID like \'%' + value + '%\'');
+            }
+            else if (name == '发布日期') {
+                initPage('CREATETIME like \'%' + value + '%\'');
+            }
+        }
+
+        //单元格单击事件
+        function clickCell(index, field, value) {
+            if (index >= 0) {
+                var rows = $('#dg').datagrid('getRows');
+                var row = rows[index];
+                if (field == "EDIT") {
+                    EditFtp(index)
+                }
+            }
+        }
+
+        //编辑
+        function formatter_update(value, row, index) {
+            return '<a class="fa fa-edit" style="color:green;"></a>';
+        }
+
+        $(function () {
+            initPage('');
+        });
+
+        function initPage(sqlWhere) {
+            //datagrid初始化  
+            $('#dg').datagrid({
+                title: '学生信息列表',
+                height: 'auto',
+                nowrap: true,
+                striped: true,
+                border: true,
+                collapsible: false,//是否可折叠的
+                url: '/Student/GetStudentList',
+                remoteSort: true,
+                idField: 'lexueid',
+                pagination: true,//分页控件  
+                pageSize: 20,
+                rownumbers: true,//行号  
+                showFooter: true,
+                fitColumns: true,
+                queryParams: { sqlWhere: sqlWhere },
+            });
+            initPagination();
+        }
+
+
+        function initPagination() {
+            //设置分页控件  
+            var p = $('#dg').datagrid('getPager');
+            $(p).pagination({
+                pageSize: 20,//每页显示的记录条数，默认为20
+                pageList: [20, 50, 100],//可以设置每页记录条数的列表  
+                beforePageText: '第',//页数文本框前显示的汉字  
+                afterPageText: '页    共 {pages} 页',
+                displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录',
+            });
+        }
+
+
+        function Query() {
+            var files = $("input[type='file']")[0].files
+            if (files == null || files.length == 0) {
+                alert('请先选择要上传的Excel文件！');
+                return;
+            }
+            var formData = new FormData();
+            formData.append("stufile", files[0]);
+
+            $.ajax({
+                url: '/Student/Preview',
+                type: 'POST',
+                cache: false,
+                data: formData,
+                contentType: false,
+                success: function (data) {
+                    
+                },
+                error: function () {
+                    
+                }
+            });
+        }
+
+
+
+
+    </script>
+}
+

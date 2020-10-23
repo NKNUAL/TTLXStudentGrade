@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6FF39CE5-77AA-4196-9AD3-BBBE1215B0D8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IDAL</RootNamespace>
+    <AssemblyName>IDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataContext\Db0905Context.cs" />
+    <Compile Include="DataContext\DbServerContext.cs" />
+    <Compile Include="DataContext\DbUseContext.cs" />
+    <Compile Include="DbContextFactory.cs" />
+    <Compile Include="DbModel\UserTable_SchoolUpload.cs" />
+    <Compile Include="Entity0905\Base_School.cs" />
+    <Compile Include="Entity0905\ServerMachineRegInfo.cs" />
+    <Compile Include="Enum\QuestionTypes.cs" />
+    <Compile Include="ServerModel\CulturalCoursesScore.cs" />
+    <Compile Include="ServerModel\CulturalExamPlan.cs" />
+    <Compile Include="ServerModel\CultureSpecialtyExamRelation.cs" />
+    <Compile Include="ServerModel\ExaminationPlan.cs" />
+    <Compile Include="ServerModel\ExaminationStudentList.cs" />
+    <Compile Include="ServerModel\MockTestPaper.cs" />
+    <Compile Include="ServerModel\MockTestPaperQuestionRelation.cs" />
+    <Compile Include="ServerModel\MockTestPaperQuestionRelation_Computer.cs" />
+    <Compile Include="ServerModel\MockTestPaperScoreResult.cs" />
+    <Compile Include="ServerModel\MockTestPaper_Computer.cs" />
+    <Compile Include="ServerModel\MonthExamTestPaper.cs" />
+    <Compile Include="ServerModel\MonthExamTestPaperQuestionRelation.cs" />
+    <Compile Include="ServerModel\MonthExamTestPaperQuestionRelation_Computer.cs" />
+    <Compile Include="ServerModel\MonthExamTestPaperScoreResult.cs" />
+    <Compile Include="ServerModel\MonthExamTestPaper_Computer.cs" />
+    <Compile Include="ServerModel\Questionsinfo_New.cs" />
+    <Compile Include="ServerModel\Questionsinfo_New_Computer.cs" />
+    <Compile Include="ServerModel\ScoreResultDetail.cs" />
+    <Compile Include="ServerModel\ScoreResultDetial_Caozuoti.cs" />
+    <Compile Include="ServerModel\UserTable.cs" />
+    <Compile Include="DbModel\Base_Area.cs" />
+    <Compile Include="DbModel\Base_courseType.cs" />
+    <Compile Include="DbModel\Base_courseType_Computer.cs" />
+    <Compile Include="DbModel\Base_courseType_Local.cs" />
+    <Compile Include="DbModel\Base_knowledgepoint.cs" />
+    <Compile Include="DbModel\Base_knowledgepoint_Computer.cs" />
+    <Compile Include="DbModel\Base_Province.cs" />
+    <Compile Include="DbModel\Base_School.cs" />
+    <Compile Include="DbModel\Base_specialtyType.cs" />
+    <Compile Include="DbModel\CaozuoSXTRelation.cs" />
+    <Compile Include="DbModel\CloudExamRule.cs" />
+    <Compile Include="DbModel\CloudExamRule_Computer.cs" />
+    <Compile Include="DbModel\ComposeExamSchema.cs" />
+    <Compile Include="DbModel\ComposeExamSchemaItem.cs" />
+    <Compile Include="DbModel\CreateQuestionsUsers.cs" />
+    <Compile Include="DbModel\ErrorQuestionReviewUser.cs" />
+    <Compile Include="DbModel\ErrorQuestions.cs" />
+    <Compile Include="DbModel\ErrorQuestionsModifyRecord.cs" />
+    <Compile Include="DbModel\ExaminationPlan.cs" />
+    <Compile Include="DbModel\ExaminationPlan_bak_0423.cs" />
+    <Compile Include="DbModel\ExaminationStudentList.cs" />
+    <Compile Include="DbModel\ExamPaper.cs" />
+    <Compile Include="DbModel\ExamPaperQuestionRelation.cs" />
+    <Compile Include="DbModel\ExamPaperQuestionRelation_Computer.cs" />
+    <Compile Include="DbModel\ExamPaperQuestionRelation_Computer_ProvinceUnion.cs" />
+    <Compile Include="DbModel\ExamPaperQuestionRelation_ProvinceUnion.cs" />
+    <Compile Include="DbModel\ExamPaper_Computer.cs" />
+    <Compile Include="DbModel\ExamPaper_Computer_ProvinceUnion.cs" />
+    <Compile Include="DbModel\ExamPaper_ProvinceUnion.cs" />
+    <Compile Include="DbModel\ExamType.cs" />
+    <Compile Include="DbModel\ExerciseInfo.cs" />
+    <Compile Include="DbModel\ExercisePaper.cs" />
+    <Compile Include="DbModel\ExercisePaperCaozuoTimuRelation.cs" />
+    <Compile Include="DbModel\ExercisePaperQuestionRelation.cs" />
+    <Compile Include="DbModel\ExercisePaperQuestionRelation_Computer.cs" />
+    <Compile Include="DbModel\ExercisePaperRelation.cs" />
+    <Compile Include="DbModel\ExercisePaperRelation_Computer.cs" />
+    <Compile Include="DbModel\ExercisePaper_Computer.cs" />
+    <Compile Include="DbModel\ExerciseScoreResult.cs" />
+    <Compile Include="DbModel\GetSmsCodeHistory.cs" />
+    <Compile Include="DbModel\LexueidRelationIDCard.cs" />
+    <Compile Include="DbModel\LocalRegInfo.cs" />
+    <Compile Include="DbModel\LogDetails.cs" />
+    <Compile Include="DbModel\MockTestPaper.cs" />
+    <Compile Include="DbModel\MockTestPaperQuestionRelation.cs" />
+    <Compile Include="DbModel\MockTestPaperQuestionRelation_Computer.cs" />
+    <Compile Include="DbModel\MockTestPaperScoreResult.cs" />
+    <Compile Include="DbModel\MockTestPaper_Computer.cs" />
+    <Compile Include="DbModel\MonthExamTestPaper.cs" />
+    <Compile Include="DbModel\MonthExamTestPaperQuestionRelation.cs" />
+    <Compile Include="DbModel\MonthExamTestPaperQuestionRelation_Computer.cs" />
+    <Compile Include="DbModel\MonthExamTestPaperScoreResult.cs" />
+    <Compile Include="DbModel\MonthExamTestPaper_Computer.cs" />
+    <Compile Include="DbModel\PaperCaozuoTimuRelation.cs" />
+    <Compile Include="DbModel\PaperCaozuoTimuRelation_ProvinceUnion.cs" />
+    <Compile Include="DbModel\Questionsinfo_New.cs" />
+    <Compile Include="DbModel\Questionsinfo_New_back_0423.cs" />
+    <Compile Include="DbModel\Questionsinfo_New_Computer.cs" />
+    <Compile Include="DbModel\Questionsinfo_New_Computer_ProvinceUnion.cs" />
+    <Compile Include="DbModel\Questionsinfo_New_Local.cs" />
+    <Compile Include="DbModel\Questionsinfo_New_ProvinceUnion.cs" />
+    <Compile Include="DbModel\Questionsinfo_Recommend.cs" />
+    <Compile Include="DbModel\Questionsinfo_Recommend_Settlement.cs" />
+    <Compile Include="DbModel\QuestionsReviewRecord.cs" />
+    <Compile Include="DbModel\QuestionsType.cs" />
+    <Compile Include="DbModel\RegInfo.cs" />
+    <Compile Include="DbModel\ResultValueTable.cs" />
+    <Compile Include="DbModel\ReviewQuestionsUsers.cs" />
+    <Compile Include="DbModel\SaveScoreResult.cs" />
+    <Compile Include="DbModel\SchoolBasicInfo.cs" />
+    <Compile Include="DbModel\SchoolPhoneUserLimit.cs" />
+    <Compile Include="DbModel\ScoreResultDetail.cs" />
+    <Compile Include="DbModel\ScoreResultDetial_Caozuoti.cs" />
+    <Compile Include="DbModel\SDFDTable.cs" />
+    <Compile Include="DbModel\Settlement_Questions_Relation.cs" />
+    <Compile Include="DbModel\SXTDFDRelation.cs" />
+    <Compile Include="DbModel\SXTTable.cs" />
+    <Compile Include="DbModel\SXTTimuTable.cs" />
+    <Compile Include="DbModel\SysMenu.cs" />
+    <Compile Include="DbModel\SysRole.cs" />
+    <Compile Include="DbModel\SysRoleMenuRelation.cs" />
+    <Compile Include="DbModel\SysUserRoleRelation.cs" />
+    <Compile Include="DbModel\TimuDetail.cs" />
+    <Compile Include="DbModel\TimuDetailScorePoint.cs" />
+    <Compile Include="DbModel\UserTable.cs" />
+    <Compile Include="DbModel\WrongQuestionsInfo.cs" />
+    <Compile Include="DbModel\WrongQuestionsInfo_Computer.cs" />
+    <Compile Include="IDbServerEntity.cs" />
+    <Compile Include="IDbUserEntity.cs" />
+    <Compile Include="Impl\DbServerEntity.cs" />
+    <Compile Include="Impl\DbUserEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj">
+      <Project>{b5b1f2a8-27b4-4cfc-9463-1b0cf33921ec}</Project>
+      <Name>Application</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

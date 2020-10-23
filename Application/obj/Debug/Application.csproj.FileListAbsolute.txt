@@ -1,0 +1,17 @@
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Debug\Application.dll
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Debug\Application.pdb
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Debug\Aspose.Cells.dll
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Debug\log4net.dll
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Debug\Newtonsoft.Json.dll
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Debug\RabbitMQ.Client.dll
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Debug\StackExchange.Redis.dll
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Debug\log4net.pdb
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Debug\log4net.xml
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Debug\Newtonsoft.Json.xml
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Debug\RabbitMQ.Client.xml
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Debug\StackExchange.Redis.xml
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\obj\Debug\Application.csproj.CoreCompileInputs.cache
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\obj\Debug\Application.csproj.CopyComplete
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\obj\Debug\Application.dll
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\obj\Debug\Application.pdb
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\obj\Debug\Application.csprojAssemblyReference.cache

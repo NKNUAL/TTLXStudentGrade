@@ -1,0 +1,354 @@
+﻿@{
+    ViewBag.Title = "学生成绩信息";
+}
+
+<div id="cc" class="easyui-layout" style="width:100%;height:800px;" data-options="fit:true">
+    <div data-options="region:'north'," style="height:55px;">
+        <div style="padding-left:10px;padding-bottom:10px;padding-top:10px;width:100%;">
+            <input class="easyui-combobox" id="specialty" style="width:15%;height:33px;" label="专业："
+                   data-options="valueField: 'SpecialtyType',textField: 'SpecialtyName',limitToList:true,onSelect: selectSpecialty" />
+            <input class="easyui-combobox" id="plan" style="width:25%;height:33px;" label="考试场次："
+                   data-options="valueField: 'PlanId',textField: 'PlanName',limitToList:true,onSelect: selectPlan" />
+        </div>
+    </div>
+    <div id="regin-west" data-options="region:'west',title:'参考学校树状图',split:true" style="width:20%;">
+        <input class="easyui-searchbox" id="querySchool" type="text" style="width:50%;height:33px;" prompt="搜索学校" data-options="searcher:searchSchool">
+        <a class="btn-ftp" href="javascript:;" title="比较" style="width:10%;" onclick="schoolCompare()">
+            同级单位比较
+        </a>
+        <ul id="tt" class="easyui-tree" data-options="animate:true,checkbox:true"></ul>
+    </div>
+    <div data-options="region:'center'," style="padding:5px;background:#eee;">
+        <div id="tt-tabs" class="easyui-tabs" data-options="fit:true">
+            <div title="学校考试数据" data-options="closable:false" style="overflow:auto;padding:20px;display:none;">
+
+                <div style="padding-left:10px;padding-bottom:20px;width:100%;">
+                    <input class="easyui-combobox" id="school" style="width:30%;height:33px;" label="学校："
+                           data-options="valueField: 'SchoolCode',textField: 'SchoolName',limitToList:true,onSelect: selectSchool" />
+
+                    <a class="btn-ftp" href="javascript:;" title="导出成绩" onclick="OutputSchoolExcel()" style="float: right;">
+                        <i class="fa fa-minus"></i>
+                        导出Excel
+                    </a>
+                </div>
+
+                <table id="dg-school" class="easyui-datagrid" style="width:100%;" data-options="singleSelect:true,
+                       striped:true,
+                       fitColumns:true,
+                       pagination:true,
+                       nowrap:true,
+                       rownumbers:true,
+                       title:'学校考试概况'">
+                    <thead>
+                        <tr>
+                            <th data-options="field:'SpecialtyName',width:'20%',halign:'center',align:'center',formatter:schoolFormat">专业</th>
+                            <th data-options="field:'MaxScore',width:'10%',halign:'center',align:'center',formatter:schoolFormat">学校最高分</th>
+                            <th data-options="field:'MinScore',width:'10%',halign:'center',align:'center',formatter:schoolFormat">学校最低分</th>
+                            <th data-options="field:'AvgScore',width:'10%',halign:'center',align:'center',formatter:schoolFormat">学校平均分</th>
+                            <th data-options="field:'EffectiveScore',width:'20%',halign:'center',align:'center',formatter:schoolFormat">本次考试有效分</th>
+                            <th data-options="field:'SchoolExamCount',width:'15%',halign:'center',align:'center',formatter:schoolFormat">本校实考人数</th>
+                            <th data-options="field:'ProvinceExamCount',width:'15%',halign:'center',align:'center',formatter:schoolFormat">全省实考人数</th>
+                        </tr>
+                    </thead>
+                </table>
+
+                <div style="padding-left:10px;padding-top:20px;padding-bottom:20px;width:100%;"></div>
+
+                <table id="dg-student" class="easyui-datagrid" style="width:100%;" data-options="singleSelect:true,
+                           striped:true,
+                           fitColumns:true,
+                           pagination:true,
+                           nowrap:true,
+                           rownumbers:true,"
+                       sortName="StudentTotalScore" sortOrder="desc"
+                       rownumbers="true"
+                       remoteSort=false></table>
+
+                <div style="padding-left:10px;padding-top:20px;padding-bottom:20px;width:100%;">
+                    <input class="easyui-combobox" id="student" style="width:33%;height:33px;" label="选择学生："
+                           data-options="valueField: 'StudentId',textField: 'StudentName',limitToList:true,onSelect:selectStudent" />
+                </div>
+
+                <table id="dg-studentQue" class="easyui-datagrid" style="width:100%;" data-options="singleSelect:true,
+                       striped:true,
+                       fitColumns:true,
+                       pagination:true,
+                       nowrap:true,
+                       rownumbers:true,"
+                       rownumbers="true" pagination="true">
+                    <thead>
+                        <tr>
+                            <th data-options="field:'QueName',width:'50%',halign:'center',align:'left'">题干</th>
+                            <th data-options="field:'StudentAnswer',width:'25%',halign:'center',align:'center'">学生答案</th>
+                            <th data-options="field:'CorrectAnswer',width:'25%',halign:'center',align:'center'">正确答案</th>
+                        </tr>
+                    </thead>
+                </table>
+
+            </div>
+            <div title="全省考试数据" data-options="closable:false" style="overflow:auto;padding:20px;display:none;">
+                <div style="padding-left:10px;padding-bottom:20px;width:100%;">
+                    <input class="easyui-textbox" type="hidden" />
+                    <a class="btn-ftp" href="javascript:;" title="导出成绩" onclick="OutputProvinceExcel()" style="float: right;">
+                        <i class="fa fa-minus"></i>
+                        全省数据导出
+                    </a>
+                </div>
+                <table id="dg-provinceTotal" class="easyui-datagrid" style="width:100%;" data-options="singleSelect:true,
+                       striped:true,
+                       fitColumns:true,
+                       pagination:true,
+                       nowrap:true,
+                       rownumbers:true,
+                       title:'全省考试概况'">
+                    <thead>
+                        <tr>
+                            <th data-options="field:'SpecialtyName',width:'25%',halign:'center',align:'center',formatter:provinceFormat">专业</th>
+                            <th data-options="field:'MaxScore',width:'10%',halign:'center',align:'center',formatter:provinceFormat">全省最高分</th>
+                            <th data-options="field:'MinScore',width:'10%',halign:'center',align:'center',formatter:provinceFormat">全省最低分</th>
+                            <th data-options="field:'AvgScore',width:'10%',halign:'center',align:'center',formatter:provinceFormat">全省平均分</th>
+                            <th data-options="field:'EffectiveScore',width:'25%',halign:'center',align:'center',formatter:provinceFormat">本次考试有效分</th>
+                            <th data-options="field:'ProvinceExamCount',width:'20%',halign:'center',align:'center',formatter:provinceFormat">全省实考人数</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div style="padding-left:10px;padding-top:20px;padding-bottom:20px;width:100%;"></div>
+                <table id="dg-province" class="easyui-datagrid" style="width:100%;" data-options="singleSelect:true,
+                       striped:true,
+                       fitColumns:true,
+                       pagination:true,
+                       nowrap:true,
+                       rownumbers:true,"
+                       sortName="StudentTotalScore" sortOrder="desc"
+                       rownumbers="true" pagination="true"
+                       remoteSort=false>
+                    <thead>
+                        <tr>
+                            <th data-options="field:'SchoolName',width:'20%',halign:'center',align:'center'" , rowspan="2">学校</th>
+                            <th data-options="field:'SpecialtyName',width:'15%',halign:'center',align:'center'" , rowspan="2">专业</th>
+                            <th data-options="field:'UserName',width:'15%',halign:'center',align:'center'" , rowspan="2">姓名</th>
+                            <th data-options="field:'',width:'20%',halign:'center',align:'center'" colspan="2">专业课</th>
+                            <th data-options="field:'CultureStudentScore',width:'15%',halign:'center',align:'center'" , rowspan="2">文化课总分</th>
+                            <th data-options="field:'StudentTotalScore',width:'15%',halign:'center',align:'center'" , rowspan="2">专业+文化总分</th>
+                        </tr>
+                        <tr>
+                            <th data-options="field:'AnswerTime',width:'10%',halign:'center',align:'center'">答题用时(分)</th>
+                            <th data-options="field:'StudentScore',width:'10%',halign:'center',align:'center'">得分</th>
+                        </tr>
+                    </thead>
+
+                </table>
+
+                <div style="padding-left:10px;padding-top:20px;padding-bottom:20px;width:100%;"></div>
+                <table id="dg-question" class="easyui-datagrid" style="width:100%;" data-options="singleSelect:true,
+                           striped:true,
+                           fitColumns:false,
+                           pagination:true,
+                           nowrap:false,
+                           rownumbers:true,
+                           title:'试卷题目统计'">
+                    <thead>
+                        <tr>
+                            <th data-options="field:'QueName',width:'50%',halign:'center'">题干</th>
+                            <th data-options="field:'CorrectAnswer',width:'10%',halign:'center',align:'center'">正确答案</th>
+                            <th data-options="field:'FirstAnswer',width:'10%',halign:'center',align:'center'">第一高答案</th>
+                            <th data-options="field:'SecondAnswer',width:'10%',halign:'center',align:'center'">第二高答案</th>
+                            <th data-options="field:'ThirdAnswer',width:'10%',halign:'center',align:'center'">第三高答案</th>
+                            <th data-options="field:'OtherAnswer',width:'10%',halign:'center',align:'center'">其他答案</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div title="同级单位对比" data-options="closable:false" style="overflow:auto;padding:20px;display:none;">
+                <div style="padding-left:10px;padding-bottom:20px;width:100%;">
+                    <span style="color:red">提示：可选择左侧学校树状图中的学校进行数据对比</span>
+
+                    <a class="btn-ftp" href="javascript:;" title="导出成绩" onclick="OutputCompareExcel()" style="float: right;">
+                        <i class="fa fa-minus"></i>
+                        导出比较Excel
+                    </a>
+                </div>
+                <table id="dg-compare" class="easyui-datagrid" style="width:100%;" data-options="singleSelect:true,
+                           striped:true,
+                           fitColumns:false,
+                           pagination:false,
+                           nowrap:true,
+                           rownumbers:true,
+                           title:'同级单位对比'"
+                       sortName="MaxScore" sortOrder="desc"
+                       rownumbers="true" remoteSort=false>
+                    <thead>
+                        <tr>
+                            <th data-options="field:'SchoolName',width:'16%',halign:'center',align:'center'">学校</th>
+                            <th data-options="field:'JoinExamCount',width:'7%',halign:'center',align:'center',sortable:true,sorter:function(a,b){ return a > b ? 1 : -1;}">参考人数</th>
+                            <th data-options="field:'PassCount',width:'7%',halign:'center',align:'center',sortable:true,sorter:function(a,b){ return a > b ? 1 : -1;}">及格数</th>
+                            <th data-options="field:'PassingRate_P',width:'7%',halign:'center',align:'center',sortable:true,sorter:function(a,b){ return a > b ? 1 : -1;}">及格率</th>
+                            <th data-options="field:'MaxScore',width:'7%',halign:'center',align:'center',sortable:true,sorter:function(a,b){ return a > b ? 1 : -1;}">最高分</th>
+                            <th data-options="field:'MinScore',width:'7%',halign:'center',align:'center'">最低分</th>
+                            <th data-options="field:'AvgScore',width:'7%',halign:'center',align:'center'">平均分</th>
+                            <th data-options="field:'A',width:'7%',halign:'center',align:'center'">优</th>
+                            <th data-options="field:'B',width:'7%',halign:'center',align:'center'">良</th>
+                            <th data-options="field:'C',width:'7%',halign:'center',align:'center'">中</th>
+                            <th data-options="field:'D',width:'7%',halign:'center',align:'center'">差</th>
+                            <th data-options="field:'StandardDeviation',width:'7%',halign:'center',align:'center'">标准差</th>
+                            <th data-options="field:'ZScore',width:'7%',halign:'center',align:'center'">Z分数</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@Styles.Render("~/Content1/css")
+@Styles.Render("~/Content2/css")
+@Scripts.Render("~/bundles/month1")
+@section scripts {
+    <script>
+        $(function () {
+            initPage();
+            $('#student').textbox('textbox').css('background', '#CA5100');
+            $('#specialty').textbox('textbox').css('background', 'lightpink');
+            $('#plan').textbox('textbox').css('background', 'darkseagreen');
+        });
+
+        (function ($) {
+            $.extend($.fn.tree.methods, {
+                search: function (jqTree, searchText) {
+                    //easyui tree的tree对象。可以通过tree.methodName(jqTree)方式调用easyui tree的方法
+                    var tree = this;
+                    //获取所有的树节点
+                    var nodeList = getAllNodes(jqTree, tree);
+                    //如果没有搜索条件，则展示所有树节点
+                    searchText = $.trim(searchText);
+                    if (searchText == "") {
+                        for (var i = 0; i < nodeList.length; i++) {
+                            $(".tree-node-targeted", nodeList[i].target).removeClass("tree-node-targeted");
+                            $(nodeList[i].target).show();
+                        }
+                        //展开已选择的节点（如果之前选择了）
+                        var selectedNode = tree.getSelected(jqTree);
+                        if (selectedNode) {
+                            tree.expandTo(jqTree, selectedNode.target);
+                        }
+                        return;
+                    }
+                    //搜索匹配的节点并高亮显示
+                    var matchedNodeList = [];
+                    if (nodeList && nodeList.length > 0) {
+                        var node = null;
+                        for (var i = 0; i < nodeList.length; i++) {
+                            node = nodeList[i];
+                            if (isMatch(searchText, node.text)) {
+                                matchedNodeList.push(node);
+                            }
+                        }
+                        //隐藏所有节点
+                        for (var i = 0; i < nodeList.length; i++) {
+                            $(".tree-node-targeted", nodeList[i].target).removeClass("tree-node-targeted");
+                            $(nodeList[i].target).hide();
+                        }
+                        //折叠所有节点
+                        tree.collapseAll(jqTree);
+                        //展示所有匹配的节点以及父节点
+                        for (var i = 0; i < matchedNodeList.length; i++) {
+                            showMatchedNode(jqTree, tree, matchedNodeList[i]);
+                        }
+                    }
+                },
+
+                showChildren: function (jqTree, node) {
+                    //easyui tree的tree对象。可以通过tree.methodName(jqTree)方式调用easyui tree的方法
+                    var tree = this;
+                    //展示子节点
+                    if (!tree.isLeaf(jqTree, node.target)) {
+                        var children = tree.getChildren(jqTree, node.target);
+                        if (children && children.length > 0) {
+                            for (var i = 0; i < children.length; i++) {
+                                if ($(children[i].target).is(":hidden")) {
+                                    $(children[i].target).show();
+                                }
+                            }
+                        }
+                    }
+                },
+
+                scrollTo: function (jqTree, param) {
+                    //easyui tree的tree对象。可以通过tree.methodName(jqTree)方式调用easyui tree的方法
+                    var tree = this;
+                    //如果node为空，则获取当前选中的node
+                    var targetNode = param && param.targetNode ? param.targetNode : tree.getSelected(jqTree);
+                    if (targetNode != null) {
+                        //判断节点是否在可视区域
+                        var root = tree.getRoot(jqTree);
+                        var $targetNode = $(targetNode.target);
+                        var container = param && param.treeContainer ? param.treeContainer : jqTree.parent();
+                        var containerH = container.height();
+                        var nodeOffsetHeight = $targetNode.offset().top - container.offset().top;
+                        if (nodeOffsetHeight > (containerH - 30)) {
+                            var scrollHeight = container.scrollTop() + nodeOffsetHeight - containerH + 30;
+                            container.scrollTop(scrollHeight);
+                        }
+                    }
+                }
+            });
+            /**
+            * 展示搜索匹配的节点
+            */
+            function showMatchedNode(jqTree, tree, node) {
+                //展示所有父节点
+                $(node.target).show();
+                $(".tree-title", node.target).addClass("tree-node-targeted");
+                var pNode = node;
+                while ((pNode = tree.getParent(jqTree, pNode.target))) {
+                    $(pNode.target).show();
+                }
+                //展开到该节点
+                tree.expandTo(jqTree, node.target);
+                //如果是非叶子节点，需折叠该节点的所有子节点
+                if (!tree.isLeaf(jqTree, node.target)) {
+                    tree.collapse(jqTree, node.target);
+                }
+            }
+
+            function isMatch(searchText, targetText) {
+                return $.trim(targetText) != "" && targetText.indexOf(searchText) != -1;
+            }
+            /**
+            * 获取easyui tree的所有node节点
+            */
+            function getAllNodes(jqTree, tree) {
+                var allNodeList = jqTree.data("allNodeList");
+                if (!allNodeList) {
+                    var roots = tree.getRoots(jqTree);
+                    allNodeList = getChildNodeList(jqTree, tree, roots);
+                    jqTree.data("allNodeList", allNodeList);
+                }
+                return allNodeList;
+            }
+            /**
+            * 定义获取easyui tree的子节点的递归算法
+            */
+            function getChildNodeList(jqTree, tree, nodes) {
+                var childNodeList = [];
+                if (nodes && nodes.length > 0) {
+                    var node = null;
+                    for (var i = 0; i < nodes.length; i++) {
+                        node = nodes[i];
+                        childNodeList.push(node);
+                        if (!tree.isLeaf(jqTree, node.target)) {
+                            var children = tree.getChildren(jqTree, node.target);
+                            childNodeList = childNodeList.concat(getChildNodeList(jqTree, tree, children));
+                        }
+                    }
+                }
+                return childNodeList;
+            }
+        })(jQuery);
+    </script>
+
+}
+
+
+

@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="@Href("~/Content/css/register.css")" rel="stylesheet" type="text/css" />
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("style", required: false)
+</head>
+<body>
+    <div class="header">
+        <img src="../Content/Images/logo5教师title.png" alt="logo" height="40" width="40" />
+        <span id="title">湖北准易教育研究院  2020年湖北省技能高考专业课调考成绩查询系统</span>
+    </div>
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>准易教育研究院-报名</title>
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet">
+    <link href="../../Content/login.css" rel="stylesheet">
+    <link href="../../js/easyui/themes/material/easyui.css" rel="stylesheet">
+    <link href="../../js/easyui/themes/icon.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <script src="../../myJs/head.js"></script>
+
+    <div class="jm-banner">
+        <div class="container" style="padding: 0;">
+            <div class="banner-text">
+                <a href="http://z.jngk.net.cn" target="_blank">
+                    <img src="../../images/banner-text1216.png" alt="湖北准易教育研究院" width="500">
+                </a>
+            </div>
+            <div class="register-box">
+
+
+                <div class="form-reg form-reg3">
+                    <div class="title">
+                        <h3>身份绑定</h3>
+                    </div>
+                    <div style="padding-top:10px;width:100%;"></div>
+                    <div class="from-group">
+                        <input id="KaoHao" name="KaoHao" class="easyui-textbox" style="width:95%;" value=""
+                            data-options="prompt:'请输入ks开头的考号'"><span style="color: red;">*</span>
+                    </div>
+                    <div style="padding-top:10px;width:100%;"></div>
+                    <div class="from-group">
+                        <input id="UserName" name="UserName" class="easyui-textbox" style="width:95%;" value=""
+                            data-options="prompt:'请输入你的姓名'"><span style="color: red;">*</span>
+                    </div>
+                    <div style="padding-top:10px;width:100%;"></div>
+                    <div class="from-group">
+                        <input id="Pwd" name="Pwd" class="easyui-textbox" style="width:95%;" value=""
+                            data-options="prompt:'请输入密码'"><span style="color: red;">*</span>
+                    </div>
+                    <div style="padding-top:10px;width:100%;"></div>
+                    <div class="from-group">
+                        <input id="IDCard" name="IDCard" class="easyui-textbox" style="width:95%;" value=""
+                            data-options="prompt:'请绑定你的身份证号'"><span style="color: red;">*</span>
+                    </div>
+                    <div style="padding-top:10px;width:100%;"></div>
+                    <!-- <div class="from-group">
+                        <input id="PhoneNumber" name="PhoneNumber" class="easyui-textbox" style="width:95%;" value=""
+                            data-options="prompt:'请输入手机（方便有问题及时联系您）'"><span style="color: red;">*</span>
+                    </div>
+                    <div style="padding-top:10px;width:100%;"></div>
+                    <div class="from-group">
+                        <input id="QQ" name="QQ" class="easyui-textbox" style="width:95%;" value=""
+                            data-options="prompt:'请输入QQ（方便有问题及时联系您）'">
+                    </div>
+                    <div style="padding-top:10px;width:100%;"></div> -->
+                    <div>
+                        <input id="code_input" name="Code" class="easyui-textbox" style="width:95%;"
+                            data-options="prompt:'请输入下方验证码'"><span style="color: red;">*</span>
+                        <div style="padding-top:10px;width:100%;"></div>
+                        <div id="v_container" style="width:80px;height:30px">
+                        </div>
+                    </div>
+                    <span style="color: red;" id="s-msg"></span>
+                    <div style="padding-top:10px;width:100%;"></div>
+                    <div>
+                        <li>
+                            <input class="button" type="button" name="lo_dl" id="lo_dl" onclick="bindMessage()"
+                                value="绑定">
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../myJs/footer.js"></script>
+
+
+    <script src="../../js/easyui/jquery.min.js"></script>
+    <script src="../../js/easyui/bootstrap.min.js"></script>
+    <script src="../../js/easyui/jquery.easyui.min.js"></script>
+    <script src="../../myJs/main.js"></script>
+
+</body>
+
+<script>
+
+    $(function () {
+        loadArea();
+    });
+
+</script>
+
+</html>

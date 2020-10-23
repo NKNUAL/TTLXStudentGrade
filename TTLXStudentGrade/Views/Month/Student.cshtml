@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewBag.Title = "学生成绩信息";
+}
+
+<div style="margin-bottom:10px;">
+    <div style="padding-left:0px;padding-bottom:5px;padding-top:5px;width:100%;">
+        <input class="easyui-combobox" id="plan" style="width:25%;height:33px;" label="考试场次："
+               data-options="valueField: 'PlanId',textField: 'PlanName',limitToList:true,onSelect: studentSelectPlan" />
+    </div>
+    <div style="padding-left:0px;padding-bottom:5px;padding-top:5px;width:100%;">
+        <p style="font-size:15px">@ViewData["schoolName"]</p>
+        <p style="font-size:15px">总分：<span id="totalScore"></span></p>
+        <p style="font-size:15px">
+            班级排名：<span id="classCode" style="color:red"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            学校排名：<span id="schoolRank" style="color:red"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            全省排名：<span id="provinceRank" style="color:red"></span>
+        </p>
+    </div>
+
+</div>
+<table id="dg-studentQue" class="easyui-datagrid" style="width:70%;" data-options="singleSelect:true,
+                       striped:true,
+                       fitColumns:true,
+                       pagination:true,
+                       nowrap:true,
+                       rownumbers:true,
+                       title:'学生考试分数'"
+       rownumbers="true" pagination="true">
+    <thead>
+        <tr>
+            <th data-options="field:'QueName',width:'50%',halign:'center',align:'left'">题干</th>
+            <th data-options="field:'StudentAnswer',width:'25%',halign:'center',align:'center'">学生答案</th>
+            <th data-options="field:'CorrectAnswer',width:'25%',halign:'center',align:'center'">正确答案</th>
+        </tr>
+    </thead>
+</table>
+
+@Styles.Render("~/Content1/css")
+@Styles.Render("~/Content2/css")
+@Scripts.Render("~/bundles/grade1")
+@section scripts {
+    <script>
+
+        $(function () {
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '/Month/GetMonthPlan?specialtyType=-1',
+                success: function (ret) {
+                    if (ret.success == true) {
+                        $('#plan').combobox('loadData', ret.data);
+                        commboxSelectFirst($('#plan'), "PlanId");
+                    }
+                    else {
+                        alert('获取考试计划出错！')
+                    }
+                },
+                error: function () {
+                    alert("获取考试计划错误！");
+                },
+            });
+        });
+
+        function commboxSelectFirst(box, id) {
+            var array = box.combobox("getData");
+            for (var item in array[0]) {
+                if (item == id) {
+                    box.combobox('select', array[0][item]);
+                }
+            }
+        }
+
+        function studentSelectPlan(record) {
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '/Month/GetStudentTotalScore?planId=' + record.PlanId + '&studentId',
+                success: function (ret) {
+                    $("#totalScore").html(ret);
+                },
+                error: function () {
+                    alert("错误！");
+                },
+            });
+
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '/Month/GetStudentProvinceRank?planId=' + record.PlanId + '&studentId',
+                success: function (ret) {
+                    $("#provinceRank").html(ret);
+                },
+                error: function (ret) {
+                    alert("错误！");
+                },
+            });
+
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '/Month/GetStudentSchoolRank?planId=' + record.PlanId + '&studentId',
+                success: function (ret) {
+                    $("#schoolRank").html(ret);
+                },
+                error: function (ret) {
+                    alert("错误！");
+                },
+            });
+
+
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '/Month/GetStudentQueDetail?planId=' + record.PlanId + '&studentId',
+                success: function (ret) {
+                    $('#dg-studentQue').datagrid("loadData", ret.rows.slice(0, 20));
+                    initPagination(ret, 'dg-studentQue', 20);
+                },
+                error: function (ret) {
+                    alert("错误！");
+                },
+            });
+        }
+        function initPagination(data, id, pageSize) {
+            var page = $('#' + id).datagrid("getPager");
+            page.pagination({
+                total: data.total,
+                pageSize: pageSize,
+                loading: true,
+                showRefresh: false,
+                pageList: [pageSize, 50, 100],
+                beforePageText: '第',
+                afterPageText: '页    共 {pages} 页',
+                displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录',
+
+                onSelectPage: $.proxy(function (pageNo, pageSize) {
+                    var start = (pageNo - 1) * pageSize;
+                    var end = start + pageSize;
+
+                    $('#' + id).datagrid("loadData", data.rows.slice(start, end));
+                    page.pagination('refresh', {
+                        total: data.total,
+                        pageNumber: pageNo
+                    });
+                }, this)
+            });
+        }
+    </script>
+}
+
+

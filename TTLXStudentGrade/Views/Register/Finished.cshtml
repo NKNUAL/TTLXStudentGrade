@@ -1,0 +1,73 @@
+﻿@using IBLL.ServiceModels
+@{
+    Layout = "~/Views/Shared/_LayoutRegister.cshtml";
+    ViewBag.Title = "湖北准易教育研究院";
+}
+
+
+@Styles.Render("~/Content1/css")
+@Styles.Render("~/Content2/css")
+<div class="div_body">
+
+    <div id="cc" class="easyui-layout" style="width:100%" data-options="fit:true">
+        <div data-options="region:'north',fit:true">
+            <div style="padding-left:10px;padding-bottom:20px;padding-top:20px;width:100%;">
+                <span id="s-title" style="font-size:20px;text-align:center;display:block">报名成功</span>
+            </div>
+
+            <div style="padding-left:50px;width:100%;">
+
+                <div class="from-group">
+                    状态：<span style="color:red">@ViewData["message"]</span>
+                </div>
+                <div style="padding-top:5px;width:100%;" />
+
+                <div class="from-group">
+                    学校：<span style="color:red">@ViewData["schoolName"]</span>
+                </div>
+                <div style="padding-top:5px;width:100%;" />
+
+
+                <div class="from-group">
+                    专业：<span style="color:red">@ViewData["specialtyName"]</span>
+                </div>
+                <div style="padding-top:5px;width:100%;" />
+
+                <div class="from-group">
+                    姓名：<span style="color:red">@ViewData["name"]</span>
+                </div>
+                <div style="padding-top:5px;width:100%;" />
+
+                <div class="from-group">
+                    考号：<span style="color:red">@ViewData["kaohao"]</span>
+                </div>
+                <div style="padding-top:5px;width:100%;" />
+
+                <div class="from-group">
+                    身份证号：<span style="color:red">@ViewData["idcard"]</span>
+                </div>
+                <div style="padding-top:5px;width:100%;" />
+
+                <div class="from-group">
+                    密码：<span style="color:red">@ViewData["pwd"]</span>
+                </div>
+                <div style="padding-top:5px;width:100%;" />
+
+
+                <span id="s-msg">请您保存好以上信息，便于考试和成绩查询</span>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/easyui")
+
+
+
+@section scripts {
+    <script>
+        $(function () {
+            //loadArea();
+        });
+    </script>
+
+}

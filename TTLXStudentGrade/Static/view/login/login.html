@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>准易--湖北技能高考专业课调考-登陆</title>
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../Content/login.css">
+
+    <!--[if lt IE 9]><script r='m'>document.createElement("section")</script><![endif]-->
+</head>
+
+<body>
+    <script src="../../myJs/head.js"></script>
+
+    <div class="jm-banner">
+        <div class="container" style="padding: 0;">
+            <div class="banner-text">
+                <a href="http://z.jngk.net.cn" target="_blank">
+                    <img src="../../images/banner-text1216.png" alt="准易教育研究院" width="500">
+                </a>
+            </div>
+            <div class="register-box">
+                <div class="form-reg form-reg2">
+
+                    <div class="title">
+                        <h3>教师/学生登录</h3>
+                    </div>
+                    <ul style="padding-left: 0px;">
+                        <li>
+                            <i class="i1"></i>
+                            <input type="text" class="form-control" aria-label="..." placeholder="身份证号 \ 学校管理员账号" id="userId"
+                                   style="height:44px;background: none;border: none;color: white;">
+                        </li>
+                        <li>
+                            <i class="i2"></i>
+                            <input type="password" class="form-control" aria-label="..." placeholder="请输入密码" id="pwd"
+                                   style="height:44px;background: none;border: none;color: white;">
+                        </li>
+
+                        <li>
+                            <input class="button" type="button" id="lo_dl" onclick="login()" value="登录">
+                        </li>
+
+
+
+                    </ul>
+
+                    <Span id="s-msg" style="color: red;"></Span>
+
+                    <div class="zhuce">
+                        <div class="f-left">有账号未绑定？请先<a href="../register/bindMessage.html">绑定身份证号码</a></div>
+                    </div>
+
+                    <div class="zhuce">
+                        <div class="f-left">没账号？<a href="../register/register.html">我要报名</a></div>
+                        <div class="f-right"><a href="../register/forgetPwd.html">忘记密码？</a></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <iframe src="../home/Index.html" width="100%" frameborder=0 scrolling="no" id="iframe1"
+            onload="this.height=this.contentWindow.document.body.scrollHeight"></iframe>
+
+    <script src="../../myJs/footer.js"></script>
+
+
+
+    <!-- <iframe src="../home/footer.html" width="100%" frameborder=0 scrolling="no" id="iframe3"
+        onload="this.height=this.contentWindow.document.body.scrollHeight"></iframe> -->
+
+    <script src="../../js/easyui/jquery.min.js"></script>
+    <script src="../../js/easyui/bootstrap.min.js"></script>
+    <script src="../../myjs/login.js"></script>
+</body>
+
+
+</html>

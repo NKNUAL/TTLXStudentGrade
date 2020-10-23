@@ -1,0 +1,266 @@
+li {
+    list-style: none;
+}
+
+.jm-top {
+    height: 36px;
+    line-height: 36px;
+    background: #ebeef4;
+    font-size: 12px;
+    color: #878d99;
+    overflow: hidden;
+}
+
+.jm-top .f-left span a, .jm-top .f-right span a.login {
+    color: #ff6800;
+}
+
+.jm-top .f-left i {
+    padding: 0 12px;
+}
+
+.jm-nav {
+    height: 90px;
+    line-height: 90px;
+}
+
+.jm-nav .navbar-collapse {
+    background: #fff;
+}
+
+.jm-nav .navbar-default {
+    background: none;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    z-index: 9;
+}
+
+.jm-nav .navbar-nav>li a:hover, .nav-section .navbar-nav>li a.current, .jm-nav .navbar-nav>li a.current {
+    color: #ff6600;
+    font-weight: bold;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    -ms-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+
+.jm-banner {
+    background: url(../images/banner_bg1216.jpg) no-repeat center center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.banner-text {
+    float: left;
+    width: 478px;
+    padding: 140px 0 80px 200px;
+}
+
+.register-box {
+    float: right;
+    width: 360px;
+    padding: 0;
+    cursor: default;
+}
+
+.form-reg1 {
+    padding: 20px 40px 20px;
+}
+.form-reg3 {
+    padding: 50px 40px 40px;
+}
+.form-reg2 {
+    padding: 100px 40px 120px;
+}
+
+.form-reg {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+}
+
+.form-reg .title {
+    position: relative;
+    padding: 0 20px;
+    height: 55px;
+    background: url(../images/reg-title-bg.png) no-repeat center center;
+}
+
+.form-reg .title h3 {
+    width: 140px;
+    line-height: 55px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    font-weight: normal;
+}
+
+.form-reg li {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 44px;
+    border: 1px solid #52789d;
+    margin-bottom: 15px;
+    padding-left: 55px;
+}
+
+.form-reg li input.text {
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    float: left;
+    border: none;
+    background: none;
+    font-size: 14px;
+    color: #fff;
+}
+
+.form-reg li i.i1 {
+    background: url(../images/register_icon1.png) no-repeat center center;
+}
+
+.form-reg li i.i2 {
+    background: url(../images/register_icon2.png) no-repeat center center;
+}
+
+.icard {
+    background: url(../images/register_card.png) no-repeat center center;
+}
+
+.iname {
+    background: url(../images/register_icon1.png) no-repeat center center;
+}
+
+.form-reg li i.i4 {
+    background: url(../images/register_icon4.png) no-repeat center center;
+}
+
+.form-reg li i.i5 {
+    background: url(../images/register_icon5.png) no-repeat center center;
+}
+
+.form-reg li i {
+    position: absolute;
+    left: 17px;
+    top: 11px;
+    display: block;
+    width: 19px;
+    height: 20px;
+}
+
+.form-reg li:last-child {
+    border: none;
+    padding-left: 0;
+}
+
+.form-reg li input.button {
+    width: 100%;
+    height: 42px;
+    background: #ff6600;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+}
+
+.form-reg .log {
+    text-align: center;
+}
+
+.form-reg .zhuce span, .form-reg .log span, .form-reg .zhuce a {
+    color: #ff6600;
+    cursor: pointer;
+}
+
+.form-reg li input.text-code {
+    width: 70%;
+}
+
+.form-reg li .buttonss {
+    float: left;
+    cursor: pointer;
+    width: 45px;
+    height: 20px;
+    margin-top: 11px;
+}
+
+.f-left {
+    float: left;
+}
+
+.f-right {
+    float: right;
+}
+
+.zhuce {
+    color: #fff;
+}
+
+.form-reg .zhuce span, .form-reg .log span, .form-reg .zhuce a {
+    color: #ff6600;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .banner-text img {
+        width: 100%;
+    }
+    .jm-nav .f-left img {
+        width: 60%;
+        top: 22px;
+    }
+    .jm-nav .navbar-toggle {
+        margin: 0;
+    }
+}
+
+@media (max-width: 996px) {
+    .banner-text {
+        padding: 36px 40px;
+        margin: 0 auto;
+        float: none;
+        width: auto;
+    }
+    .register-box {
+        width: 84%;
+        padding: 0px 0 40px;
+        margin: 0 auto;
+        float: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-nav {
+        float: left;
+        margin: 0;
+    }
+    .navbar-nav>li {
+        float: left;
+    }
+}
+
+.dropdown-menu li {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.jm-footer {
+    background-color: #3a3a3a;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.li-a:hover {
+    color: goldenrod;
+}

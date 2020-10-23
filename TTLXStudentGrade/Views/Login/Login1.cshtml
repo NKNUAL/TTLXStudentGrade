@@ -1,0 +1,66 @@
+﻿@model TTLXStudentGrade.Models.LoginModel
+@{
+
+}
+
+@*<div class="header">
+    <img src="../Content/Images/logo5教师title.png" alt="logo" height="40" width="40" />
+    <span id="title">湖北技能高考2020年模拟试卷数据管理平台</span>
+</div>*@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-lg-offset-4">
+            <div class="login-panel panel panel-default"
+                 style="border: none;background-color: rgba(0, 0, 0, 0.5);color: #FFFFFF">
+                <div class="form-group" style="padding-top:20px;margin-bottom:auto">
+                    <div style="font-size:30px;text-align:center">准易学情监测云平台</div>
+                </div>
+
+                <div class="panel-body">
+                    <ul class="nav nav-tabs">
+                        <li class="active" id="liAccount"><a href="#loginByAccount" data-toggle="tab">帐号登录</a></li>
+                    </ul>
+                    <div class="panel-body">
+                        <p id="tips">&nbsp;</p>
+
+                        <div class="tab-content">
+                            <div id="loginByAccount" class="tab-pane fade active in">
+                                <section id="login_form" class="form">
+                                    @using (Html.BeginForm("Login", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                                    {
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                            @Html.TextBoxFor(m => m.UserId, new { @class = "input_text", placeholder = "用户名", autocomplete = "off" })
+                                        </div>
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                            @Html.PasswordFor(m => m.pwd, new { @class = "input_text", placeholder = "密码" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn-success" id="login">
+                                                登录
+                                            </button>
+                                            <button type="button" class="btn btn-info hidden" id="reg">
+                                                注册
+                                            </button>
+                                        </div>
+                                        <br /> <br />
+                                    }
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

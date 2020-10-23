@@ -1,0 +1,197 @@
+﻿@{
+    ViewBag.Title = "共享试卷审核";
+}
+
+<div id="cc" class="easyui-layout" style="width:100%;height:800px;" data-options="fit:true">
+    <div data-options="region:'north'," style="height:120px;">
+        <div style="padding-left:10px;padding-bottom:10px;padding-top:10px;width:100%;">
+            <input class="easyui-combobox" id="checkStatu" style="width:20%;height:33px;" label="审核状态："
+                   data-options="valueField: 'CheckStatu',textField: 'CheckStatuName',limitToList:true" />
+            <input class="easyui-combobox" id="paperStatu" style="width:20%;height:33px;" label="试卷状态："
+                   data-options="valueField: 'PaperStatu',textField: 'PaperStatuName',limitToList:true" />
+
+        </div>
+        <div style="padding-left:10px;padding-bottom:10px;padding-top:10px;width:100%;">
+            <input class="easyui-combobox" id="specialties" style="width:20%;height:33px;" label="专业："
+                   data-options="valueField: 'SpecialtyId',textField: 'SpecialtyName',limitToList:true,onSelect: selectSpecialty" />
+            <input class="easyui-combobox" id="teachers" style="width:20%;height:33px;" label="老师："
+                   data-options="valueField: 'TeacherUserToken',textField: 'TeacherUserName',limitToList:true" />
+            <a class="btn-ftp" href="javascript:;" title="查询" style="width:10%;" onclick="searchInfo()">
+                <i class="fa fa-search"></i>
+                查询
+            </a>
+        </div>
+
+    </div>
+    <div data-options="region:'center'," style="padding:5px;background:#eee;">
+        <div id="tt-tabs" class="easyui-tabs" data-options="fit:true">
+            <div title="共享题库审核" data-options="closable:false" style="overflow:auto;padding:20px;display:none;">
+                <table id="dg" class="easyui-datagrid" style="width:100%;" data-options="
+       singleSelect:true,
+       striped:true,
+       fitColumns:true,
+       pagination:true,
+       nowrap:true,
+       rownumbers:true">
+                    <thead>
+                        <tr>
+                            <th data-options="field:'PaperID',halign:'center',align:'center',hidden:true">试卷ID</th>
+                            <th data-options="field:'PaperName',width:'15%',halign:'center',align:'center'">试卷名称</th>
+                            <th data-options="field:'PaperDesc',width:'30%',halign:'center',align:'center'">试卷描述</th>
+                            <th data-options="field:'PaperCreateDate',width:'15%',halign:'center',align:'center'">创建时间</th>
+                            <th data-options="field:'CreateUserName',width:'10%',halign:'center',align:'center'">创建人</th>
+                            <th data-options="field:'PaperQueCount',width:'5%',halign:'center',align:'center'">题目数量</th>
+                            <th data-options="field:'PaperPrice',width:'5%',halign:'center',align:'center'">价格</th>
+                            <th data-options="field:'CheckStatu',width:'5%',halign:'center',align:'center',formatter:formatCheckStatu">审核状态</th>
+                            <th data-options="field:'PaperStatu',width:'5%',halign:'center',align:'center',formatter:formatPaperStatu">试卷状态</th>
+                            <th data-options="field:'Operate',width:'10%',halign:'center',align:'center',formatter:formatOperate">操作</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="dlg-allow" class="easyui-dialog" title="通过" style="width:500px;height:380px;padding:10px"
+     data-options="iconCls:'icon-blank',closed: true,closable:true,modal:true,buttons:'#dlg-buttons3',onClose:closeAllow">
+    <p style="color:blue;font-weight:bold">评分：</p>
+    <div class="starts">
+
+        <ul id="pingStar">
+            <li rel="1" title="1分">★</li>
+            <li rel="2" title="2分">★</li>
+            <li rel="3" title="3分">★</li>
+            <li rel="4" title="4分">★</li>
+            <li rel="5" title="5分">★</li>
+            <span id="dir"></span>
+        </ul>
+        <input type="hidden" value="" id="commentLevel">
+    </div>
+
+    @*<label class="textbox-label textbox-label-before" for="commentLevel" style="width:100%;color:blue">评分:</label>
+        <input id="commentLevel" class="easyui-textbox" name="commentLevel" labelposition="before" style="width: 50% !important;" data-options="
+                       required: true">*@
+
+    <label class="textbox-label textbox-label-before" for="commentDesc" style="width:100%;color:blue">评价:</label>
+    <input id="commentDesc" class="easyui-textbox" labelposition="before" name="commentDesc" style="height:120px;width: 100%;" data-options="
+                   multiline:true,required: true">
+
+</div>
+<div id="dlg-buttons3" class="btn-groups">
+    <a id="a_allow_id" href="javascript:void(0)" class="easyui-linkbutton" onclick="" style="width:80px">通过</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:$('#dlg-allow').dialog('close')" style="width:80px">取消</a>
+</div>
+
+<div id="dlg-refuse" class="easyui-dialog" title="拒绝" style="width:500px;height:300px;padding:10px"
+     data-options="iconCls:'icon-blank',closed: true,closable:true,modal:true,buttons:'#dlg-buttons-refuse',onClose:closeRefuse">
+
+    <label class="textbox-label textbox-label-before" for="Reason" style="width:100%;color:blue">请填写拒绝原因:</label>
+    <input id="refuseReason" class="easyui-textbox" labelposition="before" name="Reason" style="height:120px;width: 100%;" data-options="
+                   multiline:true,required: true">
+
+</div>
+<div id="dlg-buttons-refuse" class="btn-groups">
+    <a id="a_refuse_id" href="javascript:void(0)" class="easyui-linkbutton" onclick="" style="width:80px">拒绝</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:$('#dlg-refuse').dialog('close')" style="width:80px">取消</a>
+</div>
+
+<div id="dlg-putoff" class="easyui-dialog" title="确认信息" style="width:250px;height:180px;padding:10px"
+     data-options="iconCls:'icon-blank',closed: true,closable:true,modal:true,buttons:'#dlg-buttons-putoff'">
+
+    <p>确定下架吗？</p>
+
+</div>
+<div id="dlg-buttons-putoff" class="btn-groups">
+    <a id="a_putoff_id" href="javascript:void(0)" class="easyui-linkbutton" onclick="" style="width:80px">下架</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:$('#dlg-putoff').dialog('close')" style="width:80px">取消</a>
+</div>
+
+
+
+@Styles.Render("~/Content1/css")
+@Styles.Render("~/Content2/css")
+@Scripts.Render("~/bundles/share")
+
+<style>
+    ul, li {
+        list-style: none;
+    }
+
+    .starts, .starts ul {
+        float: left;
+    }
+
+    .starts {
+        padding-left: 16px;
+        padding-top: 7px;
+    }
+
+        .starts ul li {
+            float: left;
+            color: #ddd;
+            padding-right: 3px;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+            .starts ul li.on {
+                color: red;
+            }
+
+        .starts ul span {
+            display: inline;
+            float: left;
+            padding-left: 10px;
+            margin-top: 10px;
+        }
+</style>
+
+@section scripts {
+    <script>
+        $(function () {
+            locaBaseData();
+
+            window.onload = function () {
+                var s = document.getElementById("pingStar"),
+                    m = document.getElementById('dir'),
+                    n = s.getElementsByTagName("li"),
+                    input = document.getElementById('commentLevel'); //保存所选值
+                clearAll = function () {
+                    for (var i = 0; i < n.length; i++) {
+                        n[i].className = '';
+                    }
+                }
+                for (var i = 0; i < n.length; i++) {
+                    n[i].onclick = function () {
+                        var q = this.getAttribute("rel");
+                        clearAll();
+                        input.value = q;
+                        for (var i = 0; i < q; i++) {
+                            n[i].className = 'on';
+                        }
+                        m.innerHTML = this.getAttribute("title");
+                    }
+                    n[i].onmouseover = function () {
+                        var q = this.getAttribute("rel");
+                        clearAll();
+                        for (var i = 0; i < q; i++) {
+                            n[i].className = 'on';
+                        }
+                    }
+                    n[i].onmouseout = function () {
+                        clearAll();
+                        for (var i = 0; i < input.value; i++) {
+                            n[i].className = 'on';
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+}
+
+
+
+

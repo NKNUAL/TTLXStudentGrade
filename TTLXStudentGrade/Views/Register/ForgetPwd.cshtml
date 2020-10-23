@@ -1,0 +1,125 @@
+﻿@using IBLL.ServiceModels
+@{
+    Layout = "~/Views/Shared/_LayoutRegister.cshtml";
+    ViewBag.Title = "湖北准易教育研究院";
+}
+
+
+@Styles.Render("~/Content1/css")
+@Styles.Render("~/Content2/css")
+<div class="div_body">
+    <div id="cc" class="easyui-layout" style="width:100%" data-options="fit:true">
+
+        <div data-options="region:'south',fit:true">
+            <div style="padding-left:10px;padding-bottom:20px;padding-top:20px;width:100%;">
+                <span id="s-title" style="font-size:20px;text-align:center;display:block">找回密码</span>
+            </div>
+
+            <div style="padding-left:50px;width:100%;padding-top:100px;">
+                <form id="register-form" method="post">
+
+                    <div class="from-group">
+                        <input id="UserName" name="UserName" class="easyui-textbox" style="width:50%;"
+                               data-options="valueField: 'User',textField: 'UserName',label: '姓名:',iconCls:'icon-man',prompt:'请输入真实姓名'">
+                        <span id="s-name" style="color:red"></span>
+                    </div>
+
+                    <div style="padding-top:5px;width:100%;" />
+
+                    <div class="from-group">
+                        <input id="IDCard" name="IDCard" class="easyui-textbox" style="width:50%;"
+                               data-options="valueField: 'User',textField: 'UserName',label: '身份证:',iconCls:'icon-lock',prompt:'请输入真实身份证号'">
+                        <span id="s-idcard" style="color:red"></span>
+                    </div>
+
+                </form>
+                <div style="padding-top:15px;width:100%;padding-left:200px;" />
+                <div id="feedback-buttons" class="btn-groups">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="findPwd()" style="width:80px">查询</a>
+                    <span id="s-code" style="color:red"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/easyui")
+
+@section scripts {
+    <script>
+
+        function checkValue(input) {
+            if (input == '' || input == null)
+                return false;
+            return true;
+        }
+
+        function findPwd() {
+
+
+
+
+
+
+            var name = $('#UserName').textbox('getValue');
+            var card = $('#IDCard').textbox('getValue');
+
+            if (!checkValue(name)) {
+                $('#s-name').html('请输入姓名');
+                return;
+            }
+            if (!checkValue(card)) {
+                $('#s-idcard').html('请输入身份证');
+                return;
+            }
+
+
+
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: '/Register/VerifyIDCard',
+                data: {
+                    "UserName": name,
+                    "IDCard": card
+                },
+                success: function (ret) {
+                    if (ret.code == 1) {
+                        var body = $("body");
+                        //创建表单
+                        var form = $("<form></form>");
+                        //将表单放入body中
+                        body.append(form);
+                        //设置表单各项属性
+                        form.attr("action", "/Register/FindPwd");
+                        form.attr("method", "post");
+                        //创建input对象并放入表单中
+
+                        var input3 = $("<input name='UserName' value='" + $('#UserName').textbox('getValue') + "' />");
+                        form.append(input3);
+                        var input4 = $("<input name='IDCard' value='" + $('#IDCard').textbox('getValue') + "' />");
+                        form.append(input4);
+
+
+                        //提交表单
+                        form.submit();
+                        form.remove();
+                    }
+                    else {
+                        $('#s-code').html(ret.message);
+                    }
+                },
+                error: function () {
+                    alert('比较错误！')
+                },
+            });
+
+
+
+            
+
+        }
+
+    </script>
+
+}
+

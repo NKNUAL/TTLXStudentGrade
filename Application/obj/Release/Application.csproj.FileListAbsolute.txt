@@ -1,0 +1,17 @@
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Release\Application.dll
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Release\Application.pdb
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Release\Aspose.Cells.dll
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Release\log4net.dll
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Release\Newtonsoft.Json.dll
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Release\RabbitMQ.Client.dll
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Release\StackExchange.Redis.dll
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Release\log4net.pdb
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Release\log4net.xml
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Release\Newtonsoft.Json.xml
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Release\RabbitMQ.Client.xml
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\bin\Release\StackExchange.Redis.xml
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\obj\Release\Application.csproj.CoreCompileInputs.cache
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\obj\Release\Application.csproj.CopyComplete
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\obj\Release\Application.dll
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\obj\Release\Application.pdb
+E:\Code\TTLXExamSystemMonitor\TTLXStudentGrade\Application\obj\Release\Application.csprojAssemblyReference.cache

@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "学生成绩信息";
+}
+
+<div style="margin-bottom:10px;">
+    <div style="padding-left:0px;padding-bottom:5px;padding-top:5px;width:100%;">
+        <input class="easyui-textbox" id="curr_specialty_id" type="hidden" value="@ViewData["specialty_id"]">
+        <input id="paper" class="easyui-combobox" name="paper" style="width:20%;" label="选择试卷：" data-options="
+                   valueField:'paperId',
+                   textField:'paperName'">
+        <input id="class" class="easyui-combobox" name="class" style="width:20%;" label="选择班级：" data-options="
+                   valueField:'classCode',
+                   textField:'className'">
+        <a class="btn-ftp" href="javascript:;" title="查询" style="width:10%;" onclick="searchInfo()">
+            <i class="fa fa-search"></i>
+            查询
+        </a>
+        <a class="btn-ftp" href="javascript:;" title="导出成绩" onclick="OutputGrade()" style="float: right;">
+            <i class="fa fa-minus"></i>
+            导出成绩
+        </a>
+    </div>
+
+</div>
+<table id="dg" class="easyui-datagrid" style="width:100%;" data-options="
+       singleSelect:true,
+       striped:true,
+       fitColumns:false,
+       pagination:true,
+       nowrap:false,
+       rownumbers:true,
+       onClickCell: clickCell"
+       sortName="MaxScore" sortOrder="desc"
+       rownumbers="true" pagination="true"
+       remoteSort=false>
+    <thead>
+        <tr>
+            <th data-options="field:'Lexueid',width:'10%',halign:'center',align:'center'">乐学ID</th>
+            <th data-options="field:'Kaohao',width:'15%',halign:'center',align:'center'">考号</th>
+            <th data-options="field:'UserName',width:'15%',halign:'center',align:'center'">姓名</th>
+            <th data-options="field:'ClassName',width:'20%',halign:'center',align:'center'">班级</th>
+            <th data-options="field:'MaxScore',width:'10%',halign:'center',align:'center',sortable:true,sorter:function(a,b){ return a > b ? 1 : -1;}">最高分</th>
+            <th data-options="field:'MinScore',width:'10%',halign:'center',align:'center',sortable:true,sorter:function(a,b){ return a > b ? 1 : -1;}">最低分</th>
+            <th data-options="field:'AvgScore',width:'10%',halign:'center',align:'center',sortable:true,sorter:function(a,b){ return a > b ? 1 : -1;}">平均分</th>
+            <th data-options="field:'WorkCount',width:'10%',halign:'center',align:'center',formatter:formatA">练习次数</th>
+        </tr>
+    </thead>
+</table>
+
+<div id="dlg-detail" class="easyui-dialog" title="学生考试详情" data-options="
+     closable:true,
+     modal:true,
+     closed: true,
+     buttons:'#stu-detail'" style="width:800px;height:550px;padding:10px">
+    <table id="dg-detail" class="easyui-datagrid" style="width:90%;" data-options="
+       singleSelect:true,
+       striped:true,
+       fitColumns:false,
+       pagination:true,
+       nowrap:false,
+       rownumbers:true">
+        <thead>
+            <tr>
+                <th data-options="field:'UserName',width:'30%',halign:'center',align:'center'">姓名</th>
+                <th data-options="field:'UserScore',width:'30%',halign:'center',align:'center'">分数</th>
+                <th data-options="field:'UserSubmitDate',width:'40%',halign:'center',align:'center'">答题时间</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<div id="stu-detail" class="btn-groups">
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="closeDlg()" style="width:80px">关闭</a>
+</div>
+
+
+@Styles.Render("~/Content1/css")
+@Styles.Render("~/Content2/css")
+@Scripts.Render("~/bundles/grade1")
+@section scripts {
+    <script>
+        $(function () {
+            initPage();
+        });
+
+    </script>
+}
+
+

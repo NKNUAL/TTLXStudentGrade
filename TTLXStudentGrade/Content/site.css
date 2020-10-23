@@ -1,0 +1,848 @@
+﻿﻿body {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+    word-wrap: break-word;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+
+.container-top {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #0072c6;
+    border-color: #0072c6;
+}
+
+.px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.row-mp-0 {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+a {
+    /* color: white; */
+    text-decoration: none;
+    /* font-weight: bold; */
+}
+
+.text-nav {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    position: relative;
+    line-height: 20px;
+    display: block;
+    color: white;
+    font-weight: bold;
+}
+
+.middle-title {
+    display: inline-block;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+    color: #357ebd;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.middle {
+    height: 40px;
+    border-bottom: 5px solid #b94a48;
+}
+
+.leftbar {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 55px;
+    background: #0072c6;
+}
+
+.fill-height {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 50px;
+    bottom: 0px;
+    overflow-y: hidden;
+}
+
+#help-btn {
+    position: fixed;
+    border: 1px solid #0072c6;
+    right: 20px;
+    top: 60px;
+    background: #0072c6;
+    text-align: center;
+    padding: 5px;
+}
+
+    #help-btn a:hover {
+        color: white;
+    }
+
+    #help-btn a {
+        color: #ccc;
+        display: block;
+        width: 40px;
+        height: 40px;
+    }
+
+#top-options {
+    color: white;
+}
+
+    #top-options:hover {
+        color: black;
+    }
+
+.register-ico {
+    color: #0072c6;
+}
+
+    .register-ico:hover {
+        color: green;
+    }
+
+.page-height {
+    height: 1000px;
+}
+
+.frame-height {
+    width: 100%;
+    height: 99%;
+}
+
+.close-right {
+    position: absolute;
+    left: 250px;
+    top: 45%;
+    width: 18px;
+    height: 37px;
+    text-align: center;
+    line-height: 37px;
+    background-color: #535353;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #fff;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+    .close-right:hover {
+        background-color: orange;
+        opacity: 1;
+    }
+
+.leftbar {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 50px;
+    background: #009ec6;
+}
+
+.fill-height {
+    width: 230px;
+    /* height: 100%; */
+    position: fixed;
+    z-index: 1020;
+    overflow-y: auto;
+}
+
+.leftbar ul {
+    list-style-type: none;
+    margin-left: 5px;
+    margin-right: 15px;
+}
+
+.leftbar a {
+    color: black;
+    text-decoration: none;
+    border: none;
+}
+
+.accordion {
+    width: 100%;
+    margin-top: 0;
+    padding-top: 0;
+    margin-left: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+    .accordion .link {
+        cursor: pointer;
+        display: block;
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+        border: none;
+        position: relative;
+        -webkit-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+.right-ico {
+    margin-left: 50px;
+}
+
+.accordion li {
+    cursor: pointer;
+    font-size: 15px;
+}
+
+    .accordion li i {
+        margin-right: 10px;
+        -webkit-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+
+        .accordion li i.fa-chevron-down {
+            right: 12px;
+            left: auto;
+            font-size: 16px;
+        }
+
+    .accordion li.open .link {
+        /* color: #ccc; */
+    }
+
+    .accordion li.open i {
+        /* color: #ccc; */
+    }
+
+        .accordion li.open i.fa-chevron-circle-up {
+            -webkit-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+
+.submenu {
+    font-size: 14px;
+    display: none;
+    border-radius: 20px;
+    background: #ccc;
+}
+
+    .submenu a {
+        display: block;
+        text-decoration: none;
+        color: #cdcdcd;
+        padding: 6px;
+        padding-left: 0px;
+        padding-right: 0px -webkit-transition: all 0.25s ease;
+        -o-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+        border-radius: 10% 50% 50% 10%;
+    }
+
+        .submenu a:hover, .submenu li.current a {
+            background: #f39800;
+            color: #FFF;
+        }
+
+body {
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar {
+    margin-bottom: 0;
+    height: 50px;
+    line-height: 50px;
+}
+
+.fill-height {
+    top: 50px;
+}
+
+.footer {
+    display: none;
+}
+
+.container-top {
+    height: 50px;
+    background-color: #2a94de;
+}
+
+.navbar-header {
+    margin-top: 0;
+}
+
+.navbar-collapse {
+    height: 50px !important;
+    line-height: 50px;
+    padding: 0;
+}
+
+.text-nav {
+    padding: 0 20px !important;
+    line-height: 50px !important;
+    display: block;
+    border-left: 1px solid #097ac8;
+    text-align: center;
+    font-weight: 400;
+}
+
+    .text-nav .fa {
+        margin-right: 5px;
+        font-size: 18px;
+        vertical-align: middle;
+        font-weight: 400;
+    }
+
+.logo {
+    width: 230px;
+    background-color: #097ac8;
+    float: left;
+    text-align: center;
+}
+
+    .logo img {
+        margin-bottom: 3px;
+    }
+
+.navbar-brand {
+    line-height: 50px;
+    padding: 0 15px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.leftbar {
+    background-color: #22282e;
+}
+
+    .leftbar ul {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+        .leftbar ul.submenu {
+            border-radius: 0;
+            background-color: #5a5454;
+            padding: 0;
+        }
+
+.accordion {
+    background-color: #22282e !important;
+    border-color: #22282e !important;
+}
+
+    .accordion li {
+        font-size: 14px;
+    }
+
+.submenu a {
+    padding-left: 40px;
+}
+
+    .submenu a > img {
+        width: 15px;
+        height: 15px;
+        vertical-align: text-top;
+    }
+
+.accordion .link {
+    padding: 0;
+    height: 44px;
+    line-height: 44px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #9bd6fe;
+    /* border-bottom: 1px solid #b3b3b3; */
+}
+
+.nav-img {
+    padding: 0 10px;
+    width: 40px;
+    vertical-align: text-bottom;
+}
+
+.accordion li i {
+    float: right;
+    margin-right: 20px;
+    line-height: 44px;
+}
+
+.container-fluid {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 230px;
+    right: 0;
+    margin: 0px;
+    padding: 0px;
+}
+
+.leftbar-shrink {
+    position: absolute;
+    bottom: 0;
+    top: 50px;
+    background: #22282e;
+    border-color: #22282e;
+}
+
+.submenu a:hover, .submenu li.current a {
+    border-radius: 0;
+    background: #494d53;
+    color: #fff;
+}
+
+.accordion li.open i.fa-caret-right {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.logo:hover {
+    cursor: pointer;
+    background-color: #0931c8;
+}
+
+.tabs {
+    padding-left: 0 !important;
+}
+
+    .tabs li {
+        margin: 0 !important;
+    }
+
+.tabs-header {
+    padding-top: 0 !important;
+}
+
+.tabs li a.tabs-inner {
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    border-top: 0 !important;
+    border-left: 0 !important;
+}
+
+.tabs-header, .tabs-tool {
+    background-color: #efefef !important;
+    border-top: 0 !important;
+    border-left: 0 !important;
+}
+
+.text-nav:hover {
+    background-color: #097ac8 !important;
+}
+
+.tabs-tool a {
+    display: inline-block;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    margin: 1px 4px;
+}
+
+    .tabs-tool a:hover {
+        border-radius: 50%;
+    }
+
+.red {
+    background-color: #ff829d !important;
+}
+
+    .red .fa-refresh {
+        color: #77041d;
+    }
+
+.tabs-tool .green {
+    background-color: #6fcdcd !important;
+}
+
+    .tabs-tool .green .fa-close {
+        color: #035959;
+    }
+
+.datagrid-cell {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+    .datagrid-cell a:hover {
+        cursor: pointer;
+    }
+
+    .datagrid-cell .fa-trash {
+        padding: 6px;
+        background-color: #ff829d;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        color: #77041d !important;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .fa-cog {
+        padding: 6px;
+        background-color: #5eb5ef;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        color: #074b78 !important;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .fa-paperclip {
+        padding: 6px;
+        background-color: #6fcdcd;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        color: #035959 !important;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .fa-link {
+        padding: 6px;
+        background-color: orange;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        color: #035959 !important;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .fa-unlink {
+        padding: 6px;
+        background-color: #dbdcd5;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        color: #035959 !important;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .fa-list-ul {
+        padding: 6px;
+        background-color: #ffd878;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        color: #553d04 !important;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .fa-image {
+        padding: 6px;
+        background-color: #ffd878;
+        border-radius: 50%;
+        color: #553d04 !important;
+        width: 25px;
+        height: 25px;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .no-access .fa-image {
+        padding: 6px;
+        background-color: #D8D8D8;
+        border-radius: 50%;
+        color: #553d04 !important;
+        width: 25px;
+        height: 25px;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .access .fa-image {
+        padding: 6px;
+        background-color: #ffd878;
+        border-radius: 50%;
+        color: #553d04 !important;
+        width: 25px;
+        height: 25px;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .no-access .fa-sign-in {
+        padding: 6px;
+        background-color: #D8D8D8;
+        border-radius: 50%;
+        color: #035959 !important;
+        width: 25px;
+        height: 25px;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .access .fa-sign-in {
+        padding: 6px;
+        background-color: #6fcdcd;
+        border-radius: 50%;
+        color: #035959 !important;
+        width: 25px;
+        height: 25px;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .fa-edit {
+        padding: 6px;
+        background-color: #6fcdcd;
+        border-radius: 50%;
+        color: #035959 !important;
+        width: 25px;
+        height: 25px;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .fa-save {
+        padding: 6px;
+        background-color: #ffd878;
+        border-radius: 50%;
+        color: #035959 !important;
+        width: 25px;
+        height: 25px;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .fa-bug {
+        padding: 6px;
+        background-color: #6fcdcd;
+        border-radius: 50%;
+        color: #035959 !important;
+        width: 25px;
+        height: 25px;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .fa-close {
+        padding: 5px;
+        background-color: #ff829d;
+        border-radius: 50%;
+        color: #77041d !important;
+        width: 25px;
+        height: 25px;
+        box-sizing: border-box;
+    }
+
+    .datagrid-cell .fa-address-card-o {
+        padding: 5px;
+        background-color: #6fcdcd;
+        border-radius: 50%;
+        color: #035959 !important;
+        width: 25px;
+        height: 25px;
+        box-sizing: border-box;
+    }
+
+.btn-ftp {
+    background-color: #60beff;
+    color: #fff !important;
+    padding: 6px 8px;
+    border-radius: 5px;
+    margin-right: 10px;
+    vertical-align: middle;
+    font-size: 14px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+    .btn-ftp:hover {
+        text-decoration: none;
+        background-color: #0072c6;
+    }
+
+/*.datagrid-header,
+.datagrid-htable {
+    height: 34px !important;
+}*/
+
+.datagrid-row {
+    /* height: 45px !important; */
+}
+
+.datagrid-header td,
+.datagrid-body td,
+.datagrid-footer td {
+    border-color: #ddd !important;
+}
+
+.datagrid-header,
+.datagrid-td-rownumber {
+    background-color: #efefef !important;
+}
+
+.datagrid-header, .datagrid-toolbar,
+.datagrid-pager, .datagrid-footer-inner {
+    border-color: #ddd !important;
+}
+
+.window {
+    padding: 0 !important;
+    border-width: 0 !important;
+}
+
+    .window .panel-header {
+        height: 50px;
+        background-color: #3daefd !important;
+    }
+
+    .window .window-header .panel-title {
+        height: 50px !important;
+        line-height: 50px !important;
+        color: #fff !important;
+        padding: 0 20px;
+    }
+
+    .window .panel-header .panel-tool {
+        margin-top: -8px !important;
+    }
+
+        .window .panel-header .panel-tool .panel-tool-close {
+            margin-right: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+    .window .from-group {
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+        .window .from-group label,
+        .excel {
+            display: inline-block;
+            width: 20%;
+            text-align: right;
+            padding: 0 5px;
+            background-color: #efefef;
+            height: 42px !important;
+            line-height: 42px !important;
+            white-space: nowrap;
+            margin: 0;
+        }
+
+        .window .from-group .je-input {
+            width: 75%;
+            border-color: #fff !important;
+            height: 40px !important;
+        }
+
+        .window .from-group .je-textarea {
+        }
+
+        .window .from-group .textbox {
+            width: 75%;
+            border-color: #fff !important;
+        }
+
+            .window .from-group .textbox > input {
+                width: 100% !important;
+                height: 40px !important;
+                border: 0;
+                outline: none;
+            }
+
+            .window .from-group .textbox > .textbox-text {
+            }
+
+        .window .from-group .date {
+            border: 0;
+            height: 42px;
+            /*width: 78% !important;*/
+        }
+
+    .window .btn-groups {
+        text-align: center;
+    }
+
+.dialog-button {
+    border-color: #fff !important;
+}
+
+.window .l-btn {
+    box-shadow: 0 0 0 !important;
+}
+
+.window .textbox-icon {
+    height: 38px !important;
+}
+
+.window .combo-arrow {
+    background-color: #fff !important;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.datagrid-row-selected {
+    background-color: #efefef !important;
+    color: #333 !important;
+}
+
+.je-f16 {
+    font-size: 14px !important;
+}
+
+.je-input {
+    font-size: 14px !important;
+    height: 32px !important;
+    line-height: 32px !important;
+    vertical-align: middle;
+}
+
+.home-panel {
+    width: 100%;
+    height: 100%;
+}
+
+.dialog-button {
+    padding: 15px 0 !important;
+}
+
+.datagrid-cell {
+    font-size: 12px !important;
+}
+
+.accordion .active {
+    background-color: #494d53;
+}

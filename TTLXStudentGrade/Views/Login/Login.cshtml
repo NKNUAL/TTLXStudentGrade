@@ -1,0 +1,62 @@
+﻿@model TTLXStudentGrade.Models.LoginModel
+@{
+                /**/
+
+                Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+                ViewBag.Title = "湖北准易教育研究院";
+}
+
+
+
+<div class="div_body">
+
+    <div id="div_image">
+        <img src="../Content/Images/logo1.png" />
+    </div>
+
+    <div class="div_login">
+        <span id="span_title">用户登录</span>
+        <section id="login_form" class="form">
+            @using (Html.BeginForm("Login", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+            {
+                <div class="form_item">
+                    <div class="el-form-item-content" style="margin-left: 0px;">
+                        <div class="el-input">
+                            <span class="fa fa-user"></span>
+                            @Html.TextBoxFor(m => m.UserId, new { @class = "input_text", placeholder = "用户名", autocomplete = "off" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form_item">
+                    <div class="el-form-item-content" style="margin-left: 0px;">
+                        <div class="el-input">
+                            <span class="fa fa-unlock-alt"></span>
+                            @Html.PasswordFor(m => m.pwd, new { @class = "input_text", placeholder = "密码" })
+                        </div>
+                    </div>
+                </div>
+
+                <div id="login_message">
+                    <span></span>@Html.ValidationMessage("", new { @style = "color:red" })
+                </div>
+                <div id="btn_login" style="width: 100%;">
+                    <div id="form-item__content">
+                        <button type="submit" id="button_login" style="width: 100%;">
+                            <span> 登录</span>
+                        </button>
+                    </div>
+                    @*<a href="/Register/Index"><span style="float:left;">学生注册</span></a>
+                        <a href="/Register/ForgetPwd"><span style="float:right;">忘记密码</span></a>*@
+                </div>
+
+
+
+            }
+        </section>
+        <div class="login_tips" style="text-align: left; font-size: 12px; margin-top: 50px; color: rgb(184, 184, 184);">
+            @*<span style="color:red">如未查询到相关数据，是由于考试数据未处理完，建议明天上午查询，学生排名、全省总人数均会有变动</span>*@
+            <p>温馨提示：</p>
+            <p>请使用学校管理账号登陆和学生考试账号登录</p>
+        </div>
+    </div>
+</div>

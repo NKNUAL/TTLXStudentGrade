@@ -1,0 +1,122 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutRegister.cshtml";
+    ViewBag.Title = "湖北准易教育研究院";
+}
+
+
+@Styles.Render("~/Content1/css")
+@Styles.Render("~/Content2/css")
+<div class="div_body">
+    <div id="cc" class="easyui-layout" style="width:100%" data-options="fit:true">
+
+        <div data-options="region:'south',fit:true">
+            <div style="padding-left:10px;padding-bottom:20px;padding-top:20px;width:100%;">
+                <span id="s-title" style="font-size:20px;text-align:center;display:block">考生报名</span>
+            </div>
+
+            <div style="padding-left:50px;width:100%;">
+                <form id="register-form" method="post">
+                    <div class="from-group">
+                        <input id="Area" class="easyui-combobox" name="Area" style="width:50%;" data-options="
+                        valueField: 'AreaNo',textField: 'AreaName',
+                        label: '区域:',
+                        limitToList:true,
+                        panelHeight:'auto',
+                        onSelect: selectArea,prompt:'请选择区域'
+                        ">
+                        <span id="s-area" style="color:red"></span>
+                    </div>
+                    <div style="padding-top:5px;width:100%;" />
+                    <div class="from-group">
+                        <input id="School" class="easyui-combobox" name="SchoolNo" style="width:50%;" data-options="
+                        valueField: 'SchoolNo',textField: 'SchoolName',
+                        label: '学校:',
+                        limitToList:true,
+                        panelHeight:'auto',prompt:'请选择学校'
+                        ">
+                        <span id="s-school" style="color:red">提示：未找到学校请在区域和学校中选择其他</span>
+                    </div>
+                    <div style="padding-top:5px;width:100%;" />
+                    <div class="from-group">
+                        <input id="Specialty" class="easyui-combobox" name="SpecialtyId" style="width:50%;" data-options="
+                        valueField: 'SpecialtyId',textField: 'SpecialtyName',
+                        label: '专业:',
+                        limitToList:true,
+                        panelHeight:'auto',prompt:'请选择专业'
+                        ">
+                        <span id="s-specialty" style="color:red"></span>
+                    </div>
+                    <div style="padding-top:5px;width:100%;" />
+                    <div class="from-group">
+                        <input id="Name" name="UserName" class="easyui-textbox" style="width:50%;"
+                               data-options="valueField: 'User',textField: 'UserName',label: '姓名:',iconCls:'icon-man',prompt:'请输入真实姓名'">
+                        <span id="s-name" style="color:red"></span>
+                    </div>
+                    <div style="padding-top:5px;width:100%;" />
+                    <div class="from-group">
+                        <input id="IDCard" name="IDCard" class="easyui-textbox" style="width:50%;"
+                               data-options="valueField: 'User',textField: 'UserName',label: '身份证:',iconCls:'icon-lock',prompt:'请输入真实身份证号'">
+                        <span id="s-idcard" style="color:red"></span>
+                    </div>
+                    <div style="padding-top:5px;width:100%;" />
+                    <div class="from-group">
+                        <input id="PhoneNumber" name="PhoneNumber" class="easyui-textbox" style="width:50%;"
+                               data-options="label: '手机:',iconCls:'icon-lock',prompt:'请输入手机（方便有问题及时联系您）'">
+                        <span id="s-phone" style="color:red"></span>
+                    </div>
+                    <div style="padding-top:5px;width:100%;" />
+                    <div class="from-group">
+                        <input id="QQ" name="QQ" class="easyui-textbox" style="width:50%;"
+                               data-options="label: 'QQ:',iconCls:'icon-lock',prompt:'请输入QQ（方便有问题及时联系您）'">
+                        <span id="s-phone" style="color:red"></span>
+                    </div>
+                    <div style="padding-top:5px;width:100%;" />
+                    <div class="from-group">
+                        <input id="Pwd" name="Password" class="easyui-textbox" style="width:50%;"
+                               data-options="label: '密码:',iconCls:'icon-lock',prompt:'请输入密码（密码长度请大于6位）'">
+                        <span id="s-pwd" style="color:red"></span>
+                    </div>
+                    <div style="padding-top:5px;width:100%;" />
+                    <div class="from-group">
+                        <input id="Pwd2" name="Password2" class="easyui-textbox" style="width:50%;"
+                               data-options="label: '确认密码:',iconCls:'icon-lock',prompt:'请再次输入密码'">
+                        <span id="s-pwd2" style="color:red"></span>
+
+                    </div>
+                    <div style="padding-top:5px;width:100%;" />
+                    <div class="from-group">
+                        <input id="code_input" name="Code" class="easyui-textbox" style="width:50%;"
+                               data-options="prompt:'请输入下方验证码',label: '验证码:'">
+                        <div id="v_container" style="width:80px;height:30px"></div>
+                    </div>
+                    <span id="v_container"></span>
+                </form>
+                <div style="padding-top:15px;width:100%;padding-left:200px;" />
+                <div id="feedback-buttons" class="btn-groups">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="register()" style="width:80px">注册</a>
+                    <a href="/Login/Login" class="easyui-linkbutton" style="width:140px">已有账号登录</a>
+                    <span id="s-code" style="color:red"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/main1")
+@Scripts.Render("~/bundles/easyui")
+
+<style>
+
+    #verifyCanvas {
+        margin-left: 80px
+    }
+</style>
+
+@section scripts {
+    <script>
+        $(function () {
+            loadArea();
+        });
+
+    </script>
+
+}
